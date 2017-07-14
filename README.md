@@ -1,2 +1,2 @@
-# changlin-util
-工具库
+# lin-common-util
+some utils
