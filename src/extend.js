@@ -3,6 +3,8 @@ import {isWindow,isPlainObject,isObject,isFunction,isArray,isBoolean} from './is
 
 function _extend(...a) {
     const [deep,target, source]=a;
+    
+    if(!isObject(source))return target;
 
     for (let key in source)
         if (deep && (isPlainObject(source[key]) || isArray(source[key]))) {
@@ -23,7 +25,7 @@ function extend(...a) {
           first=a[0],
     deep=isBoolean(first);
     
-    if(len)return;
+    if(!len)return {};
 
     if(len==1){
         return _extend(false,{},first)
@@ -37,7 +39,7 @@ function extend(...a) {
         }
     }
     if(deep){
-        if(len===3){
+        if(len==3){
             return _extend(...a)
         }else{
             const temp=a.splice(len-2);
@@ -54,4 +56,5 @@ function extend(...a) {
 
 
 
-export { extend}
+export default extend
+

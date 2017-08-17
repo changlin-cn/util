@@ -6,8 +6,8 @@ function isFunction(value) {
     return typeof value == "function"
 }
 
-function isUndefined(str){
-    return typeof str=='undefined'
+function isUndefined(obj){
+    return typeof obj=='undefined'
 }
 
 function isWindow(obj) {
@@ -38,6 +38,9 @@ function isBoolean(a){
     return typeof a==='boolean'
 }
 
-export {
+
+module.exports={
+    default:module.exports,
     isArray,isFunction,isObject,isPlainObject,isWindow,isString,isUndefined,isLikeArray,isBoolean
 }
+

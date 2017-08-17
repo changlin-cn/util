@@ -1,5 +1,10 @@
-import {extend} from './extend.js'
-import { isArray,isFunction,isObject,isPlainObject,isWindow,isString,isUndefined,isLikeArray,isBoolean} from './is.js'
-export {extend, isArray,isFunction,isObject,isPlainObject,isWindow,isString,isUndefined,isLikeArray,isBoolean}
+import extend from './extend.js'
+import is from './is.js'
+
+module.exports={
+    default:module.exports,
+    is,extend
+}
+
 
 
