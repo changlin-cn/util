@@ -1,3 +1,5 @@
+let regex=require('./regex');
+
 let isArray,
     class2type = {},
     toString = class2type.toString;
@@ -39,8 +41,31 @@ function isBoolean(a){
 }
 
 
+function is(type,value){
+    if(isString(type)){
+        if(regex[type]&&type!='default'){
+            value=String(value);
+            return regex[type].test(value)
+        }else{
+            throw Error(`unknown type ${type}`);
+        }
+    }else{
+        throw Error('type should be string');
+    }
+}
+
+
 module.exports={
     default:module.exports,
-    isArray,isFunction,isObject,isPlainObject,isWindow,isString,isUndefined,isLikeArray,isBoolean
+    is,
+    isArray,
+    isFunction,
+    isObject,
+    isPlainObject,
+    isWindow,
+    isString,
+    isUndefined,
+    isLikeArray,
+    isBoolean
 }
 

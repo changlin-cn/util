@@ -1,12 +1,13 @@
 {
   "name": "changlin-util",
-  "version": "2.0.3",
+  "version": "2.1.4",
   "description": "some utils",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run build && mocha test/*.test.js",
+    "test": "mocha test/*.test.js",
+    "buildTest":"npm run build && npm run test",
     "build": "babel src -d dist",
-    "pb": "npm run test && npm publish"
+    "pb": "npm run buildTest && npm publish"
   },
   "repository": {
     "type": "git",
