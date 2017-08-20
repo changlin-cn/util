@@ -1,3 +1,4 @@
+let expect = require('chai').expect;
 let {
         isArray,
         is,
@@ -11,7 +12,7 @@ let {
         isWindow
     }      = require(`../dist/is.js`);
 
-let expect = require('chai').expect;
+
 
 describe('is.js  isArray',function(){
     it('[1,2] should be array',function(){
@@ -49,77 +50,108 @@ describe('is.js  isBoolean',function(){
 
 describe('is.js  is:',function(){
     //number
-    it('0 should be number',function(){
-        expect(is('number',0)).to.equal(true);
+    let number={
+        'true':['1','2','3','2300','0001.','-1.2','-5.2','-001.','-111.00121','-0.001','1.2','0.1'],
+        'false':['1.a','..a','..1','1..','`','']
+    };
+    number['true'].forEach(item=>{
+        it(`${item} should  be number`,function(){
+            expect(is('number',item)).to.equal(true);
+        });
     });
-    it('0. should be number',function(){
-        expect(is('number',0.)).to.equal(true);
+    number['false'].forEach(item=>{
+        it(`${item} should not be number`,function(){
+            expect(is('number',item)).to.equal(false);
+        });
     });
-    it('0.1 should be number',function(){
-        expect(is('number',0.1)).to.equal(true);
-    });
-    it('0.1234 should be number',function(){
-        expect(is('number',0.1234)).to.equal(true);
-    });
-    it('.1234 should be number',function(){
-        expect(is('number',.1234)).to.equal(true);
-    });
-    it('12.3.4 should not be number',function(){
-        expect(is('number','12.3.4')).to.equal(false);
-    });
-    it('{} should not be number',function(){
-        expect(is('number',{})).to.equal(false);
-    });
+   
     
     //integer
-    it('12 should  be integer',function(){
-        expect(is('integer','12')).to.equal(true);
+    let integer={
+        'true':['1','2','3','2300','0001.'],
+        'false':['-1.2','-5.2','-111.00121','-0.001','1.2','0.1','']
+    };
+    integer['true'].forEach(item=>{
+        it(`${item} should  be integer`,function(){
+            expect(is('integer',item)).to.equal(true);
+        });
     });
-    it('0 should  be integer',function(){
-        expect(is('integer','0')).to.equal(true);
-    });
-    it('-1 should  be integer',function(){
-        expect(is('integer','-1')).to.equal(true);
-    });
-    it('-1.3 should not be integer',function(){
-        expect(is('integer','-1.3')).to.equal(false);
-    });
-    it('1.3 should not be integer',function(){
-        expect(is('integer','1.3')).to.equal(false);
+    integer['false'].forEach(item=>{
+        it(`${item} should not be integer`,function(){
+            expect(is('integer',item)).to.equal(false);
+        });
     });
     
+    
     //positiveNumber
-    it('1.3 should be positiveNumber',function(){
-        expect(is('positiveNumber','1.3')).to.equal(true);
+    let positiveNumber={
+        'true':['1','2','3','2300','1.2','0.32341','0001.2','0001.'],
+        'false':['-1.2','0','-1','-5.2','-001.','-111.00121','-0.001','']
+    };
+    positiveNumber['true'].forEach(item=>{
+        it(`${item} should  be positiveNumber`,function(){
+            expect(is('positiveNumber',item)).to.equal(true);
+        });
     });
-    it('-1.3 should not be positiveNumber',function(){
-        expect(is('positiveNumber',-1.3)).to.equal(false);
-    });
-    it('0 should not be positiveNumber',function(){
-        expect(is('positiveNumber',0)).to.equal(false);
-    });
-    it('0.3 should  be positiveNumber',function(){
-        expect(is('positiveNumber',0.3)).to.equal(true);
-    });
-    it('0.03 should  be positiveNumber',function(){
-        expect(is('positiveNumber',0.03)).to.equal(true);
-    });
-    it('01.03 should  be positiveNumber',function(){
-        expect(is('positiveNumber','00.03')).to.equal(true);
+    positiveNumber['false'].forEach(item=>{
+        it(`${item} should not be positiveNumber`,function(){
+            expect(is('positiveNumber',item)).to.equal(false);
+        });
     });
     
     
     //positiveInteger
-    it('1.3 should not be positiveInteger',function(){
-        expect(is('positiveInteger',1.3)).to.equal(false);
+    let positiveInteger={
+        'true':['1','2','3','2300'],
+        'false':['1.2','0','-1','-5.2','']
+    };
+    positiveInteger['true'].forEach(item=>{
+        it(`${item} should  be positiveInteger`,function(){
+            expect(is('positiveInteger',item)).to.equal(true);
+        });
     });
-    it('0 should not be positiveInteger',function(){
-        expect(is('positiveInteger',0)).to.equal(false);
-    });
-    it('1 should be positiveInteger',function(){
-        expect(is('positiveInteger',1)).to.equal(true);
+    positiveInteger['false'].forEach(item=>{
+        it(`${item} should not be positiveInteger`,function(){
+            expect(is('positiveInteger',item)).to.equal(false);
+        });
     });
     
+    
+    
+    //url
+    let urls={
+        'true':[
+            'http://www.baidu.com',
+            'http://www.baidu.com?a=3',
+            'http://www.baidu.com?a=3&',
+            'http://www.baidu.com?a=3&b=4',
+            'http://www.baidu.com?a=3&b=4#',
+            'http://www.baidu.com?a=3&b=4#asdflkjla',
+            'http://www.baidu.com?a=3&b=4#/asdflkjla?a=5',
+            'https://www.baidu.com'
+        ],
+        'false':[
+            'htt://www.baidu.com',
+            'http//www.baidu.com',
+            'http:www.baidu.com',
+            'http://',
+            'asdfas',
+            'http://#asdf',
+            'http://SLDKasdf?asdf',
+            'www.baidu.com'
+        ]
+    };
+    
+    urls['true'].forEach(item=>{
+        it(`${item} should be positiveInteger`,function(){
+            expect(is('url',item)).to.equal(true);
+        });
+    });
+    urls['false'].forEach(item=>{
+        it(`${item} should not be positiveInteger`,function(){
+            expect(is('url',item)).to.equal(false);
+        });
+    });
     
     
 });

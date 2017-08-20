@@ -56,7 +56,6 @@ function is(type,value){
 
 
 module.exports={
-    default:module.exports,
     is,
     isArray,
     isFunction,
@@ -67,5 +66,6 @@ module.exports={
     isUndefined,
     isLikeArray,
     isBoolean
-}
+};
+module.exports.default=module.exports;
 

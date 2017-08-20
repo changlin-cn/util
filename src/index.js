@@ -1,5 +1,5 @@
-import extend from './extend.js'
-import is from './is.js'
+let {extend} = require('./extend.js');
+let is = require('./is.js');
 
 module.exports={
     default:module.exports,
