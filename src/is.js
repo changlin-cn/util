@@ -1,19 +1,19 @@
-let regex=require('./regex');
+import {regex} from './regex'
 
 let isArray,
     class2type = {},
     toString = class2type.toString;
 
 function isFunction(value) {
-    return typeof value == "function"
+    return typeof value === "function"
 }
 
 function isUndefined(obj){
-    return typeof obj=='undefined'
+    return typeof obj==='undefined'
 }
 
 function isWindow(obj) {
-    return obj != null && obj == obj.window
+    return obj !== null && obj === obj.window
 }
 
 function isString(str){
@@ -21,15 +21,15 @@ function isString(str){
 }
 
 function isObject(obj) {
-    return typeof obj == "object"&&obj!=null;
+    return typeof obj === "object"&&obj!==null;
 }
 
 function isPlainObject(obj) {
-    return isObject(obj) && Object.getPrototypeOf(obj) == Object.prototype
+    return isObject(obj) && Object.getPrototypeOf(obj) === Object.prototype
 }
 
 function isLikeArray(obj) {
-    return typeof obj.length == 'number'
+    return typeof obj.length === 'number'
 }
 
 isArray = Array.isArray ||
@@ -41,9 +41,9 @@ function isBoolean(a){
 }
 
 
-function is(type,value){
+function isType(type,value){
     if(isString(type)){
-        if(regex[type]&&type!='default'){
+        if(regex[type]&&type!=='default'){
             value=String(value);
             return regex[type].test(value)
         }else{
@@ -55,8 +55,8 @@ function is(type,value){
 }
 
 
-module.exports={
-    is,
+export  {
+    isType,
     isArray,
     isFunction,
     isObject,
@@ -67,5 +67,5 @@ module.exports={
     isLikeArray,
     isBoolean
 };
-module.exports.default=module.exports;
+
 

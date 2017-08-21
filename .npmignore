@@ -2,3 +2,4 @@ src
 .idea
 yarn.lock
 .babelrc
+test

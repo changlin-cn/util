@@ -1,5 +1,4 @@
-
-let {isWindow,isPlainObject,isObject,isFunction,isArray,isBoolean} =require ('./is.js');
+import {isWindow,isPlainObject,isObject,isFunction,isArray,isBoolean} from './is.js'
 
 function _extend(...a) {
     const [deep,target, source]=a;
@@ -52,9 +51,4 @@ function extend(...a) {
         return extend(...a)
     }
 }
-
-
-
-
-module.exports= {default:extend,extend}
-
+export {extend}

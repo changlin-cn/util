@@ -1,10 +1,7 @@
-let {extend} = require('./extend.js');
-let is = require('./is.js');
+import {extend} from './extend.js'
+import * as is from './is'
+import {regex} from './regex'
 
-module.exports={
-    default:module.exports,
-    is,extend
-}
-
+export {is,extend,regex}
 
 

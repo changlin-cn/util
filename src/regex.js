@@ -1,13 +1,11 @@
 let regex={
-    number:/^-?((\d+(\.{1}\d*)?)|(\.{1}\d+))$/,
+    number:/^-?((\d+(\.\d*)?)|(\.\d+))$/,
     empty:/^[\s\S]{0}$/,
     integer:/^-?\d+\.?$/,
     positiveInteger:/^0*[1-9]+\d*$/,
-    positiveNumber:/^((0*\.{1}0*[1-9]{1}\d*)|(0*[1-9]{1}\d*(\.{1}\d*)?))$/,
-    
+    positiveNumber:/^((0*\.0*[1-9]\d*)|(0*[1-9]\d*(\.\d*)?))$/,
     url:/^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#])?$/,
-    
 };
 
-module.exports=regex;
-module.exports.default=module.exports;
+export {regex}
+
