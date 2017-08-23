@@ -153,5 +153,70 @@ describe('is.js  is:', function () {
         });
     });
     
+    //tel
+    let tel = {
+        'true': [
+            '028-12323424',
+            '0754-12323424',
+            '0086-0754-12323424',
+            '(0754)12323424',
+            '(0754)12323424877',
+            '（0754）12323424877',
+            '13345635673',
+            '15345635673',
+            '+8615345635673',
+            '+861-15345635673'
+        ],
+        'false': [
+            'htt://www.baidu.com',
+            '',
+            'a12342341234',
+            '-1234234234',
+            '%asdf1239847102',
+            '2341',
+            '123'
+        ]
+    };
+    
+    tel['true'].forEach(item => {
+        it(`${item} should be tel`, function () {
+            expect(isType('tel', item)).to.equal(true);
+        });
+    });
+    tel['false'].forEach(item => {
+        it(`${item} should not be tel`, function () {
+            expect(isType('tel', item)).to.equal(false);
+        });
+    });
+    
+    //mobilePhone
+    let mobilePhone = {
+        'true': [
+            '13345635673',
+            '15345635673',
+            '+8615345635673'
+        ],
+        'false': [
+            'htt://www.baidu.com',
+            '',
+            'a12342341234',
+            '-1234234234',
+            '%asdf1239847102',
+            '2341',
+            '123',
+            '1234123412'
+        ]
+    };
+    
+    mobilePhone['true'].forEach(item => {
+        it(`${item} should be mobilePhone`, function () {
+            expect(isType('mobilePhone', item)).to.equal(true);
+        });
+    });
+    mobilePhone['false'].forEach(item => {
+        it(`${item} should not be mobilePhone`, function () {
+            expect(isType('mobilePhone', item)).to.equal(false);
+        });
+    });
     
 });
