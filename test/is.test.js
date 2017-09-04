@@ -1,5 +1,5 @@
 let expect = require('chai').expect;
-import {is} from '../src/index'
+import {is, extend, regex} from '../src/index'
 
 let {
         isArray,
@@ -13,6 +13,104 @@ let {
         isUndefined,
         isWindow
     } = is;
+
+
+
+describe('is.js  isUndefined', function () {
+    it('a.b should be Undefined', function () {
+        let a={};
+        expect(isUndefined(
+            a.b
+        )).to.equal(true);
+    });
+    it('null should not be Undefined', function () {
+        expect(isUndefined(
+            null
+        )).to.equal(false);
+    });
+    it('new Date() should not be Undefined', function () {
+        expect(isUndefined(
+            new Date()
+        )).to.equal(false);
+    });
+});
+
+
+describe('is.js  isString', function () {
+    it('\'123\' should be String', function () {
+        expect(isString(
+            '123'
+        )).to.equal(true);
+    });
+    it('null should not be String', function () {
+        expect(isString(
+            null
+        )).to.equal(false);
+    });
+    it('new Date() should not be String', function () {
+        expect(isString(
+            new Date()
+        )).to.equal(false);
+    });
+});
+
+
+describe('is.js  isPlainObject', function () {
+    it('{} should be PlainObject', function () {
+        expect(isPlainObject(
+            {0:1,1:3,length:2}
+        )).to.equal(true);
+    });
+    it('null should not be PlainObject', function () {
+        expect(isPlainObject(
+            null
+        )).to.equal(false);
+    });
+    it('new Date() should not be PlainObject', function () {
+        expect(isPlainObject(
+            new Date()
+        )).to.equal(false);
+    });
+});
+
+describe('is.js  isLikeArray', function () {
+    it('it should be LikeArray', function () {
+        expect(isLikeArray(
+            {0:1,1:3,length:2}
+        )).to.equal(true);
+    });
+      it('{} should not be LikeArray', function () {
+          expect(isLikeArray(
+              {}
+          )).to.equal(false);
+    });
+});
+describe('is.js  isObject', function () {
+    it('{} should be Object', function () {
+        expect(isObject(
+            {0:1,1:3,length:2}
+        )).to.equal(true);
+    });
+      it('null should not be Object', function () {
+          expect(isObject(
+              null
+          )).to.equal(false);
+    });
+});
+
+describe('is.js  isFunction', function () {
+    it('()=>{} should be function', function () {
+        expect(isFunction(() => {
+        })).to.equal(true);
+    });
+    it('function(){} should be function', function () {
+        expect(isFunction(function () {
+        })).to.equal(true);
+    });
+    it('{} should not be function', function () {
+        expect(isFunction({})).to.equal(false);
+    });
+});
 
 
 describe('is.js  isArray', function () {
@@ -216,6 +314,52 @@ describe('is.js  is:', function () {
     mobilePhone['false'].forEach(item => {
         it(`${item} should not be mobilePhone`, function () {
             expect(isType('mobilePhone', item)).to.equal(false);
+        });
+    });
+    
+    
+    //email
+    let email = {
+        'true': [
+            'user@125.com',
+            'user-admin@163.com',
+            'user_2005@qq.com',
+            'user@name.site',
+            'user@name.site.com',
+            'user@142.135.50.88',
+            'user@142.135.50.88.87.65',
+            'user_2005@abcdasddf.com.cn',
+            'user_2005@abcdasddf.com',
+            'user_2005@abcdasddf.cn',
+            'user_2005@abcdasddf.site',
+        ],
+        'false': [
+            'htt://www.baidu.com',
+            'user_2005@qqcom',
+            'user_2005@qq.',
+            'user_2005@.com',
+            'user_2005@.com.cn',
+            'user_2005@.com.site',
+            '',
+            'a12342341234',
+            '-1234234234@qq.com',
+            '%asdf1239847102@aa.com',
+            '2341',
+            '-user@125.com',
+            '_user-admin@163.com',
+            'user-_admin@163.com',
+            '.user_2005@qq.com'
+        ]
+    };
+    
+    email['true'].forEach(item => {
+        it(`${item} should be email`, function () {
+            expect(isType('email', item)).to.equal(true);
+        });
+    });
+    email['false'].forEach(item => {
+        it(`${item} should not be email`, function () {
+            expect(isType('email', item)).to.equal(false);
         });
     });
     

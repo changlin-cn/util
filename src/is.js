@@ -8,36 +8,36 @@ function isFunction(value) {
     return typeof value === "function"
 }
 
-function isUndefined(obj){
-    return typeof obj==='undefined'
+function isUndefined(value){
+    return typeof value==='undefined'
 }
 
-function isWindow(obj) {
-    return obj !== null && obj === obj.window
+function isWindow(value) {
+    return value !== null && value === value.window
 }
 
-function isString(str){
-    return typeof  str==='string'
+function isString(value){
+    return typeof  value==='string'
 }
 
-function isObject(obj) {
-    return typeof obj === "object"&&obj!==null;
+function isObject(value) {
+    return typeof value === "object"&&value!==null;
 }
 
-function isPlainObject(obj) {
-    return isObject(obj) && Object.getPrototypeOf(obj) === Object.prototype
+function isPlainObject(value) {
+    return isObject(value) && Object.getPrototypeOf(value) === Object.prototype
 }
 
-function isLikeArray(obj) {
-    return typeof obj.length === 'number'
+function isLikeArray(value) {
+    return typeof value.length === 'number'
 }
 
 isArray = Array.isArray ||
-    function (object) {
-        return object instanceof Array
+    function (value) {
+        return value instanceof Array
     };
-function isBoolean(a){
-    return typeof a==='boolean'
+function isBoolean(value){
+    return typeof value==='boolean'
 }
 
 
