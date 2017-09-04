@@ -13,6 +13,9 @@ import {is,extend,regex} from '../src/index'
 import {isType,isString} from  'changlin-util/dist/is'
 
 isType('integer', 2) //=>true
+
 extend(true,{},{name:'lin'}//=>{name:'lin'}
+
 is.isString('string')//=>true
+
 isType('mobilePhone', 13387877878)//=>true
