@@ -5,7 +5,7 @@
 [![language](https://img.shields.io/badge/language-javascript-orange.svg)](https://github.com/ChangLin-CN/changlin-util.git)     [![Build Status](https://travis-ci.org/ChangLin-CN/changlin-util.svg?branch=master)](https://travis-ci.org/ChangLin-CN/changlin-util)         [![npm version](https://img.shields.io/npm/v/changlin-util.svg)](https://www.npmjs.com/package/changlin-util)
 
 
-## 快速开始
+## 快速使用
 
 npm install changlin-util
 

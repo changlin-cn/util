@@ -1,6 +1,6 @@
 {
   "name": "changlin-util",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "some utils",
   "main": "dist/index.js",
   "scripts": {
