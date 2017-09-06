@@ -4,3 +4,4 @@ yarn.lock
 .babelrc
 test
 .travis.yml
+README.tpl.js

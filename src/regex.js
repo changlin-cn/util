@@ -1,4 +1,14 @@
+/**
+ * @module regex
+ */
+
+
+/**
+ * @export regex
+ */
 let regex={
+    //property
+    
     number:/^-?((\d+(\.\d*)?)|(\.\d+))$/,
     empty:/^[\s\S]{0}$/,
     integer:/^-?\d+\.?$/,

@@ -1,3 +1,4 @@
+
 # changlin-util
 
 整理的一些工具函数
@@ -5,17 +6,142 @@
 [![language](https://img.shields.io/badge/language-javascript-orange.svg)](https://github.com/ChangLin-CN/changlin-util.git)     [![Build Status](https://travis-ci.org/ChangLin-CN/changlin-util.svg?branch=master)](https://travis-ci.org/ChangLin-CN/changlin-util)         [![npm version](https://img.shields.io/npm/v/changlin-util.svg)](https://www.npmjs.com/package/changlin-util)
 
 
-## 快速使用
+# 快速使用
 
 npm install changlin-util
 
 import {is,extend,regex} from '../src/index'
 import {isType,isString} from  'changlin-util/dist/is'
 
-isType('integer', 2) //=>true
 
-extend(true,{},{name:'lin'}//=>{name:'lin'}
+# API
 
-is.isString('string')//=>true
+## Modules
 
-isType('mobilePhone', 13387877878)//=>true
+<dl>
+<dt><a href="#module_extend">extend</a></dt>
+<dd></dd>
+<dt><a href="#module_is">is</a></dt>
+<dd></dd>
+<dt><a href="#module_regex">regex</a></dt>
+<dd></dd>
+</dl>
+
+<a name="module_extend"></a>
+
+## extend
+<a name="module_extend..extend"></a>
+
+### extend~extend(deep, target, source) ⇒ <code>object</code>
+对象扩展
+
+**Kind**: inner method of [<code>extend</code>](#module_extend)  
+
+| Param | Type |
+| --- | --- |
+| deep | <code>boolean</code> \| <code>object</code> | 
+| target | <code>object</code> | 
+| source | <code>object</code> | 
+
+**Example**  
+```javascript//deep  false let source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(false, {}, source);source.c.c1 = 4;res.c.c1===4//=>true//deep truelet source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(true, {}, source);source.c.c1 = 4;res.c.c1===4//=>false```
+<a name="module_is"></a>
+
+## is
+
+* [is](#module_is)
+    * [~isArray](#module_is..isArray) ⇒ <code>boolean</code>
+    * [~isFunction()](#module_is..isFunction) ⇒ <code>boolean</code>
+    * [~isUndefined()](#module_is..isUndefined) ⇒ <code>boolean</code>
+    * [~isWindow()](#module_is..isWindow) ⇒ <code>boolean</code>
+    * [~isString()](#module_is..isString) ⇒ <code>boolean</code>
+    * [~isNumber()](#module_is..isNumber) ⇒ <code>boolean</code>
+    * [~isObject()](#module_is..isObject) ⇒ <code>boolean</code>
+    * [~isPlainObject()](#module_is..isPlainObject) ⇒ <code>boolean</code>
+    * [~isLikeArray()](#module_is..isLikeArray) ⇒ <code>boolean</code>
+    * [~isBoolean()](#module_is..isBoolean) ⇒ <code>boolean</code>
+    * [~isType(type, value)](#module_is..isType) ⇒ <code>boolean</code>
+
+<a name="module_is..isArray"></a>
+
+### is~isArray ⇒ <code>boolean</code>
+判断值是否为Array
+
+**Kind**: inner property of [<code>is</code>](#module_is)  
+<a name="module_is..isFunction"></a>
+
+### is~isFunction() ⇒ <code>boolean</code>
+判断值是否为function
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isUndefined"></a>
+
+### is~isUndefined() ⇒ <code>boolean</code>
+判断值是否为undefined
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isWindow"></a>
+
+### is~isWindow() ⇒ <code>boolean</code>
+判断值是否为window
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isString"></a>
+
+### is~isString() ⇒ <code>boolean</code>
+判断值是否为string
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isNumber"></a>
+
+### is~isNumber() ⇒ <code>boolean</code>
+判断值是否为number
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isObject"></a>
+
+### is~isObject() ⇒ <code>boolean</code>
+判断值是否为object
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isPlainObject"></a>
+
+### is~isPlainObject() ⇒ <code>boolean</code>
+判断值是否为Plain Object
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isLikeArray"></a>
+
+### is~isLikeArray() ⇒ <code>boolean</code>
+判断值是否类似array
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isBoolean"></a>
+
+### is~isBoolean() ⇒ <code>boolean</code>
+判断值是否为boolean
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+<a name="module_is..isType"></a>
+
+### is~isType(type, value) ⇒ <code>boolean</code>
+类型判断
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+
+| Param | Type |
+| --- | --- |
+| type | <code>string</code> | 
+| value | <code>string</code> | 
+
+**Example**  
+```javascriptisType('email','user@163.com')   //=>true```
+<a name="module_regex"></a>
+
+## regex
+<a name="module_regex..regex"></a>
+
+### regex~regex
+**Kind**: inner property of [<code>regex</code>](#module_regex)  
+**Export**: regex  
+

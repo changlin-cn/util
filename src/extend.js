@@ -1,3 +1,8 @@
+/**
+ * @module extend
+ */
+
+
 import {isWindow,isPlainObject,isObject,isFunction,isArray,isBoolean} from './is.js'
 
 function _extend(...a) {
@@ -17,7 +22,29 @@ function _extend(...a) {
     return target
 }
 
-
+/**
+ * 对象扩展
+ * @param {boolean|object} deep
+ * @param {object} target
+ * @param {object} source
+ * @example
+ *
+ *
+ * ```javascript
+ * //deep  false
+ *  let source  = {a: 1, b: 2, c: {c1: 1}};
+ *let res  = extend(false, {}, source);
+ *source.c.c1 = 4;
+ * res.c.c1===4//=>true
+ *
+ * //deep true
+ *let source  = {a: 1, b: 2, c: {c1: 1}};
+ *let res  = extend(true, {}, source);
+ *source.c.c1 = 4;
+ *res.c.c1===4//=>false
+ * ```
+ * @returns {object}
+ */
 
 function extend(...a) {
     const len=a.length,
@@ -26,11 +53,11 @@ function extend(...a) {
     
     if(!len)return {};
 
-    if(len==1){
+    if(len===1){
         return _extend(false,{},first)
     }
 
-    if(len==2){
+    if(len===2){
         if(deep){
             return a[1]
         }else{
@@ -38,7 +65,7 @@ function extend(...a) {
         }
     }
     if(deep){
-        if(len==3){
+        if(len===3){
             return _extend(...a)
         }else{
             const temp=a.splice(len-2);
