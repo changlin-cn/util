@@ -8,10 +8,13 @@ module.exports.tpl=`
 
 # 快速使用
 
+\`\`\`javascript
 npm install changlin-util
 
 import {is,extend,regex} from '../src/index'
 import {isType,isString} from  'changlin-util/dist/is'
+\`\`\`
+
 
 
 # API

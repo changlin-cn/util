@@ -1,6 +1,6 @@
 {
   "name": "changlin-util",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "some utils",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "babel src -d dist",
     "build:doc": "node createDoc.js",
     "pb:npmr": "nrm use npm && npm run pb",
-    "pb": "npm run test && npm run build && npm run build:doc  && npm publish"
+    "pb": "npm run build:doc &&  npm run test && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
