@@ -54,6 +54,7 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 * [is](#module_is)
     * [~isArray](#module_is..isArray) ⇒ <code>boolean</code>
+    * [~isType(type, string)](#module_is..isType) ⇒ <code>boolean</code>
     * [~isFunction()](#module_is..isFunction) ⇒ <code>boolean</code>
     * [~isUndefined()](#module_is..isUndefined) ⇒ <code>boolean</code>
     * [~isWindow()](#module_is..isWindow) ⇒ <code>boolean</code>
@@ -63,7 +64,6 @@ import {isType,isString} from  'changlin-util/dist/is'
     * [~isPlainObject()](#module_is..isPlainObject) ⇒ <code>boolean</code>
     * [~isLikeArray()](#module_is..isLikeArray) ⇒ <code>boolean</code>
     * [~isBoolean()](#module_is..isBoolean) ⇒ <code>boolean</code>
-    * [~isType(type, string)](#module_is..isType) ⇒ <code>boolean</code>
 
 <a name="module_is..isArray"></a>
 
@@ -71,6 +71,20 @@ import {isType,isString} from  'changlin-util/dist/is'
 判断值是否为Array
 
 **Kind**: inner property of [<code>is</code>](#module_is)  
+<a name="module_is..isType"></a>
+
+### is~isType(type, string) ⇒ <code>boolean</code>
+类型判断
+
+**Kind**: inner method of [<code>is</code>](#module_is)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性 |
+| string | <code>string</code> |  |
+
+**Example**  
+```javascriptisType('email','user@163.com')   //=>true```
 <a name="module_is..isFunction"></a>
 
 ### is~isFunction() ⇒ <code>boolean</code>
@@ -125,20 +139,6 @@ import {isType,isString} from  'changlin-util/dist/is'
 判断值是否为boolean
 
 **Kind**: inner method of [<code>is</code>](#module_is)  
-<a name="module_is..isType"></a>
-
-### is~isType(type, string) ⇒ <code>boolean</code>
-类型判断
-
-**Kind**: inner method of [<code>is</code>](#module_is)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| type | <code>string</code> | url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性 |
-| string | <code>string</code> |  |
-
-**Example**  
-```javascriptisType('email','user@163.com')   //=>true```
 <a name="module_regex"></a>
 
 ## regex

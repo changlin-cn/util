@@ -9,6 +9,32 @@ let isArray,
     toString = class2type.toString;
 
 /**
+ * 类型判断
+ * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
+ * @param {string}  string
+ * @example
+ *
+ *
+ * ```javascript
+ * isType('email','user@163.com')   //=>true
+ * ```
+ * @returns {boolean}
+ */
+function isType(type,string){
+    if(isString(string)){
+        if(regex[type]&&type!=='default'){
+            string=String(string);
+            return regex[type].test(string)
+        }else{
+            throw Error(`unknown type ${type}`);
+        }
+    }else{
+        throw Error('type should be string');
+    }
+}
+
+
+/**
  * 判断值是否为function
  * @returns {boolean}
  */
@@ -87,31 +113,6 @@ isArray = Array.isArray ||
  */
 function isBoolean(value){
     return typeof value==='boolean'
-}
-
-/**
- * 类型判断
- * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
- * @param {string}  string
- * @example
- *
- *
- * ```javascript
- * isType('email','user@163.com')   //=>true
- * ```
- * @returns {boolean}
- */
-function isType(type,string){
-    if(isString(string)){
-        if(regex[type]&&type!=='default'){
-            string=String(string);
-            return regex[type].test(string)
-        }else{
-            throw Error(`unknown type ${type}`);
-        }
-    }else{
-        throw Error('type should be string');
-    }
 }
 
 

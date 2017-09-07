@@ -1,14 +1,17 @@
 {
   "name": "changlin-util",
-  "version": "2.1.12",
+  "version": "2.1.14",
   "description": "some utils",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha  --require babel-register test/*.test.js",
-    "build": "babel src -d dist",
+    "test": "npm run test:src && npm run test:dist",
+    "test:src": "mocha  --require babel-register test/src.test.js",
+    "test:dist": "mocha  test/dist.test.js",
+    "build": "npm run build:doc && npm run build:dist",
+    "build:dist": "babel src -d dist",
     "build:doc": "node createDoc.js",
     "pb:npmr": "nrm use npm && npm run pb",
-    "pb": "npm run build:doc &&  npm run test && npm run build && npm publish"
+    "pb": "npm run build && npm run test && npm publish"
   },
   "repository": {
     "type": "git",
