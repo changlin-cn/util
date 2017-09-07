@@ -91,8 +91,8 @@ function isBoolean(value){
 
 /**
  * 类型判断
- * @param {string}  type
- * @param {string}  value
+ * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
+ * @param {string}  string
  * @example
  *
  *
@@ -101,11 +101,11 @@ function isBoolean(value){
  * ```
  * @returns {boolean}
  */
-function isType(type,value){
-    if(isString(type)){
+function isType(type,string){
+    if(isString(string)){
         if(regex[type]&&type!=='default'){
-            value=String(value);
-            return regex[type].test(value)
+            string=String(string);
+            return regex[type].test(string)
         }else{
             throw Error(`unknown type ${type}`);
         }

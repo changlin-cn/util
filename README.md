@@ -63,7 +63,7 @@ import {isType,isString} from  'changlin-util/dist/is'
     * [~isPlainObject()](#module_is..isPlainObject) ⇒ <code>boolean</code>
     * [~isLikeArray()](#module_is..isLikeArray) ⇒ <code>boolean</code>
     * [~isBoolean()](#module_is..isBoolean) ⇒ <code>boolean</code>
-    * [~isType(type, value)](#module_is..isType) ⇒ <code>boolean</code>
+    * [~isType(type, string)](#module_is..isType) ⇒ <code>boolean</code>
 
 <a name="module_is..isArray"></a>
 
@@ -127,15 +127,15 @@ import {isType,isString} from  'changlin-util/dist/is'
 **Kind**: inner method of [<code>is</code>](#module_is)  
 <a name="module_is..isType"></a>
 
-### is~isType(type, value) ⇒ <code>boolean</code>
+### is~isType(type, string) ⇒ <code>boolean</code>
 类型判断
 
 **Kind**: inner method of [<code>is</code>](#module_is)  
 
-| Param | Type |
-| --- | --- |
-| type | <code>string</code> | 
-| value | <code>string</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| type | <code>string</code> | url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性 |
+| string | <code>string</code> |  |
 
 **Example**  
 ```javascriptisType('email','user@163.com')   //=>true```
@@ -146,5 +146,22 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 ### regex~regex
 **Kind**: inner property of [<code>regex</code>](#module_regex)  
-**Export**: regex  
+**Export**: regex 常用正则表达式  
+**Properties**
+
+| Name |
+| --- |
+| number | 
+| empty | 
+| integer | 
+| positiveInteger | 
+| positiveNumber | 
+| url | 
+| tel | 
+| mobilePhone | 
+| email | 
+| account | 
+| IdCard | 
+| ip | 
+
 
