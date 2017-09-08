@@ -71,7 +71,7 @@ function isUndefined(value) {
  * @returns {boolean}
  */
 function isWindow(value) {
-    return value !== null && value === value.window;
+    return toString.call(value).toLowerCase() === "[object window]";
 }
 
 /**
@@ -119,7 +119,7 @@ function isLikeArray(value) {
  * @returns {boolean}
  */
 exports.isArray = isArray = Array.isArray || function (value) {
-    return value instanceof Array;
+    return toString.call(value).toLowerCase() === '[object array]';
 };
 
 /**
