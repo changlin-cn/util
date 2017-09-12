@@ -11,7 +11,7 @@
 ```javascript
 npm install changlin-util
 
-import {is,extend,regex} from '../src/index'
+import {is,extend,regex,trim,removeFromArray} from 'changlin-util'
 import {isType,isString} from  'changlin-util/dist/is'
 ```
 
@@ -22,6 +22,10 @@ import {isType,isString} from  'changlin-util/dist/is'
 ## Modules
 
 <dl>
+<dt><a href="#module_string">string</a></dt>
+<dd></dd>
+<dt><a href="#module_array">array</a></dt>
+<dd></dd>
 <dt><a href="#module_extend">extend</a></dt>
 <dd></dd>
 <dt><a href="#module_is">is</a></dt>
@@ -30,6 +34,42 @@ import {isType,isString} from  'changlin-util/dist/is'
 <dd></dd>
 </dl>
 
+<a name="module_string"></a>
+
+## string
+<a name="module_string..trim"></a>
+
+### string~trim(string, fe, char) ⇒ <code>string</code>
+字符串两端剪切
+
+**Kind**: inner method of [<code>string</code>](#module_string)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| string | <code>string</code> |  |  |
+| fe | <code>string</code> | <code>&quot;fe&quot;</code> | f or e or  fe |
+| char | <code>string</code> | <code>&quot;\\s&quot;</code> |  |
+
+**Example**  
+```javascripttrim('   abc   ')//=>'abc'trim('   abc   ','f')//=>'abc   'trim('   abc   ','e')//=>'   abc'trim('**abc**','*')//=>'abc'```
+<a name="module_array"></a>
+
+## array
+<a name="module_array..removeFromArray"></a>
+
+### array~removeFromArray(arr, condition, number) ⇒ <code>Array</code>
+从数组中移除某些项
+
+**Kind**: inner method of [<code>array</code>](#module_array)  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| arr | <code>Array</code> |  |  |
+| condition | <code>Number</code> \| <code>function</code> |  | if(number&&arr[number] remove arr[number] ; if(fn(item))remove item |
+| number | <code>Number</code> | <code>1</code> |  |
+
+**Example**  
+```javascriptlet a=[1,2,3];removeFromArray(a,1)//=>[2]a//=>[1,3]let b=[{id:1},{id:2},{id:3}];removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]b//=>[{id:1},{id:2}]```
 <a name="module_extend"></a>
 
 ## extend

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.isBoolean = exports.isLikeArray = exports.isUndefined = exports.isString = exports.isWindow = exports.isPlainObject = exports.isObject = exports.isFunction = exports.isArray = exports.isType = undefined;
+exports.isBoolean = exports.isLikeArray = exports.isUndefined = exports.isNumber = exports.isString = exports.isWindow = exports.isPlainObject = exports.isObject = exports.isFunction = exports.isArray = exports.isType = undefined;
 
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
@@ -137,6 +137,7 @@ exports.isObject = isObject;
 exports.isPlainObject = isPlainObject;
 exports.isWindow = isWindow;
 exports.isString = isString;
+exports.isNumber = isNumber;
 exports.isUndefined = isUndefined;
 exports.isLikeArray = isLikeArray;
 exports.isBoolean = isBoolean;

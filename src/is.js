@@ -124,6 +124,7 @@ export  {
     isPlainObject,
     isWindow,
     isString,
+    isNumber,
     isUndefined,
     isLikeArray,
     isBoolean
