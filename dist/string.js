@@ -3,12 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.trim = undefined;
+exports.trim = trim;
 
 var _is = require('./is');
 
 /**
  * 字符串两端剪切
+ * @export trim
  * @param {string}  string
  * @param {string}  fe  f or e or  fe
  * @param {string}  char
@@ -46,5 +47,3 @@ function trim(string) {
 } /**
    * @module string
    */
-
-exports.trim = trim;

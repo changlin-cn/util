@@ -24,6 +24,7 @@ function _extend(...a) {
 
 /**
  * 对象扩展
+ * @export extend
  * @param {boolean|object} deep
  * @param {object} target
  * @param {object} source
@@ -46,7 +47,7 @@ function _extend(...a) {
  * @returns {object}
  */
 
-function extend(...a) {
+export function extend(...a) {
     const len=a.length,
           first=a[0],
     deep=isBoolean(first);
@@ -78,4 +79,3 @@ function extend(...a) {
         return extend(...a)
     }
 }
-export {extend}

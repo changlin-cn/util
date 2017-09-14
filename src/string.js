@@ -6,6 +6,7 @@ import {isString} from './is'
 
 /**
  * 字符串两端剪切
+ * @export trim
  * @param {string}  string
  * @param {string}  fe  f or e or  fe
  * @param {string}  char
@@ -20,7 +21,7 @@ import {isString} from './is'
  *
  * @returns {string}
  */
-function trim(string,fe='fe',char='\\s' ){
+export function trim(string,fe='fe',char='\\s' ){
     if(isString(string)&&isString(char)&&isString(fe)){
         if(!/^(fe)|([fe])$/.test(fe)){char=fe;fe='fe';}
         let FRegex=new RegExp(`^[${char}]*`),ERegex=new RegExp(`[${char}]*$`);
@@ -35,13 +36,5 @@ function trim(string,fe='fe',char='\\s' ){
     }
     throw new Error('Parameter type error')
 }
-
-
-
-
-
-export  {
-    trim
-};
 
 

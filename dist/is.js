@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.isBoolean = exports.isLikeArray = exports.isUndefined = exports.isNumber = exports.isString = exports.isWindow = exports.isPlainObject = exports.isObject = exports.isFunction = exports.isArray = exports.isType = undefined;
+exports.isArray = undefined;
 
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
@@ -13,16 +13,28 @@ var _typeof2 = require('babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
+exports.isType = isType;
+exports.isFunction = isFunction;
+exports.isUndefined = isUndefined;
+exports.isWindow = isWindow;
+exports.isString = isString;
+exports.isNumber = isNumber;
+exports.isObject = isObject;
+exports.isDate = isDate;
+exports.isPlainObject = isPlainObject;
+exports.isLikeArray = isLikeArray;
+exports.isBoolean = isBoolean;
+
 var _regex = require('./regex');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var isArray = void 0,
-    class2type = {},
-    toString = class2type.toString;
+var class2type = {},
+    toString = Object.prototype.toString;
 
 /**
  * 类型判断
+ * @export isType
  * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
  * @param {string}  string
  * @example
@@ -52,6 +64,7 @@ function isType(type, string) {
 
 /**
  * 判断值是否为function
+ * @export isFunction
  * @returns {boolean}
  */
 function isFunction(value) {
@@ -60,6 +73,7 @@ function isFunction(value) {
 
 /**
  * 判断值是否为undefined
+ * @export isUndefined
  * @returns {boolean}
  */
 function isUndefined(value) {
@@ -68,6 +82,7 @@ function isUndefined(value) {
 
 /**
  * 判断值是否为window
+ * @export isWindow
  * @returns {boolean}
  */
 function isWindow(value) {
@@ -76,6 +91,7 @@ function isWindow(value) {
 
 /**
  * 判断值是否为string
+ * @export isString
  * @returns {boolean}
  */
 function isString(value) {
@@ -84,6 +100,7 @@ function isString(value) {
 
 /**
  * 判断值是否为number
+ * @export isNumber
  * @returns {boolean}
  */
 function isNumber(value) {
@@ -92,6 +109,7 @@ function isNumber(value) {
 
 /**
  * 判断值是否为object
+ * @export isObject
  * @returns {boolean}
  */
 function isObject(value) {
@@ -99,7 +117,17 @@ function isObject(value) {
 }
 
 /**
+ * 判断值是否为Date
+ * @export isDate
+ * @returns {boolean}
+ */
+function isDate(value) {
+    return isObject(value) && toString.call(value).toLowerCase() === "[object date]";
+}
+
+/**
  * 判断值是否为Plain Object
+ * @export isPlainObject
  * @returns {boolean}
  */
 function isPlainObject(value) {
@@ -108,6 +136,7 @@ function isPlainObject(value) {
 
 /**
  * 判断值是否类似array
+ * @export isLikeArray
  * @returns {boolean}
  */
 function isLikeArray(value) {
@@ -116,28 +145,18 @@ function isLikeArray(value) {
 
 /**
  * 判断值是否为Array
+ * @export isArray
  * @returns {boolean}
  */
-exports.isArray = isArray = Array.isArray || function (value) {
+var isArray = exports.isArray = Array.isArray || function (value) {
     return toString.call(value).toLowerCase() === '[object array]';
 };
 
 /**
  * 判断值是否为boolean
+ * @export isBoolean
  * @returns {boolean}
  */
 function isBoolean(value) {
     return typeof value === 'boolean';
 }
-
-exports.isType = isType;
-exports.isArray = isArray;
-exports.isFunction = isFunction;
-exports.isObject = isObject;
-exports.isPlainObject = isPlainObject;
-exports.isWindow = isWindow;
-exports.isString = isString;
-exports.isNumber = isNumber;
-exports.isUndefined = isUndefined;
-exports.isLikeArray = isLikeArray;
-exports.isBoolean = isBoolean;

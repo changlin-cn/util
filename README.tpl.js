@@ -11,7 +11,7 @@ module.exports.tpl=`
 \`\`\`javascript
 npm install changlin-util
 
-import {is,extend,regex,trim,removeFromArray} from 'changlin-util'
+import {isType,isObject,isString,extend,regex,trim,removeFromArray,is} from 'changlin-util'
 import {isType,isString} from  'changlin-util/dist/is'
 \`\`\`
 

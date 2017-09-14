@@ -13,7 +13,8 @@ module.exports=function(is){
             isPlainObject,
             isString,
             isUndefined,
-            isWindow
+            isWindow,
+            isDate,
         } = is;
     
     
@@ -353,6 +354,22 @@ module.exports=function(is){
         it('{} should not be Boolean', function () {
             expect(isArray({})).to.equal(false);
         });
+    });
+    
+    describe('is.js  isDate', function () {
+        it(' isDate(new Date()) should return true', function () {
+            expect(isDate(new Date())).to.equal(true);
+        });
+       it(' isDate(123) should return false', function () {
+            expect(isDate(123)).to.equal(false);
+        });
+       it(' isDate({}) should return false', function () {
+            expect(isDate({})).to.equal(false);
+        });
+         it(' isDate([]) should return false', function () {
+            expect(isDate([])).to.equal(false);
+        });
+      
     });
     
 };

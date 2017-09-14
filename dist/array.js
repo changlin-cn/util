@@ -3,11 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.removeFromArray = undefined;
 
 var _typeof2 = require('babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
+
+exports.removeFromArray = removeFromArray;
 
 var _is = require('./is');
 
@@ -15,6 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /**
  * 从数组中移除某些项
+ * @export removeFromArray
  * @param {Array}  arr
  * @param {Number | function}  condition  if(number&&arr[number] remove arr[number] ; if(fn(item))remove item
  *@param {Number}  number
@@ -58,5 +60,3 @@ function removeFromArray(arr, condition) {
 } /**
    * @module array
    */
-
-exports.removeFromArray = removeFromArray;

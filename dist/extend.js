@@ -3,11 +3,12 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.extend = undefined;
 
 var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
+
+exports.extend = extend;
 
 var _is = require('./is.js');
 
@@ -36,6 +37,7 @@ function _extend() {
 
 /**
  * 对象扩展
+ * @export extend
  * @param {boolean|object} deep
  * @param {object} target
  * @param {object} source
@@ -98,4 +100,3 @@ function extend() {
         return extend.apply(undefined, (0, _toConsumableArray3.default)(a));
     }
 }
-exports.extend = extend;
