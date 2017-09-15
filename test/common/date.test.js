@@ -1,9 +1,15 @@
+
+
 let expect = require('chai').expect;
 
-module.exports = function (dateFormat, fromTime) {
+module.exports = function (dateFormat, fromTime,ONE_MIN) {
     
     describe('dateFormat :   ', function () {
-        let t1 = new Date(1478836800000);
+        let LocOffset=new Date().getTimezoneOffset();
+        let c=-480;
+        let utc=1478808000000;
+        let local=utc-(c+c-LocOffset)*ONE_MIN;
+        let t1 = new Date(local);
         
         it('dateFormat(t1,\'yyyy/MM/dd hh:mm:ss\')  should  return  \'2016/11/11 12:00:00\'', function () {
             expect(dateFormat(t1, 'yyyy/MM/dd hh:mm:ss')).to.equal('2016/11/11 12:00:00');

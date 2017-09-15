@@ -1,6 +1,6 @@
-import {is, extend, trim,removeFromArray,dateFormat,fromTime} from '../src/index'
+import {is, extend, trim,removeFromArray,dateFormat,fromTime,ONE_MIN} from '../src/index'
 require('./common/is.test.js')(is);
 require('./common/extend.test.js')(extend);
 require('./common/string.test.js')(trim);
 require('./common/array.test.js')(removeFromArray);
-require('./common/date.test.js')(dateFormat,fromTime);
+require('./common/date.test.js')(dateFormat,fromTime,ONE_MIN);
