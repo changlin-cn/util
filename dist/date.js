@@ -66,7 +66,7 @@ function _stringNumberToDate(date) {
  * @param {string} format
  * @example
  * ```javascript
- * dateFormat(new Date(), 'yyyy/MM/dd HH:mm:ss')
+ * dateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')
  * dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
  * ```
  *

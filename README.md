@@ -132,7 +132,7 @@ import {isType,isString} from  'changlin-util/dist/is'
 | format | <code>string</code> | 
 
 **Example**  
-```javascriptdateFormat(new Date(), 'yyyy/MM/dd HH:mm:ss')dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11```
+```javascriptdateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11```
 <a name="module_date.fromTime"></a>
 
 ### date.fromTime(from, now) ⇒ <code>string</code>
