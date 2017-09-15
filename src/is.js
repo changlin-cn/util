@@ -10,7 +10,7 @@ let
 
 /**
  * 类型判断
- * @export isType
+ *
  * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
  * @param {string}  string
  * @example
@@ -37,7 +37,7 @@ export function isType(type, string) {
 
 /**
  * 判断值是否为function
- * @export isFunction
+ *
  * @returns {boolean}
  */
 export function isFunction(value) {
@@ -46,7 +46,7 @@ export function isFunction(value) {
 
 /**
  * 判断值是否为undefined
- * @export isUndefined
+ *
  * @returns {boolean}
  */
 export function isUndefined(value) {
@@ -55,7 +55,7 @@ export function isUndefined(value) {
 
 /**
  * 判断值是否为window
- * @export isWindow
+ *
  * @returns {boolean}
  */
 export function isWindow(value) {
@@ -64,7 +64,7 @@ export function isWindow(value) {
 
 /**
  * 判断值是否为string
- * @export isString
+ *
  * @returns {boolean}
  */
 export function isString(value) {
@@ -73,7 +73,7 @@ export function isString(value) {
 
 /**
  * 判断值是否为number
- * @export isNumber
+ *
  * @returns {boolean}
  */
 export function isNumber(value) {
@@ -82,7 +82,7 @@ export function isNumber(value) {
 
 /**
  * 判断值是否为object
- * @export isObject
+ *
  * @returns {boolean}
  */
 export function isObject(value) {
@@ -91,7 +91,7 @@ export function isObject(value) {
 
 /**
  * 判断值是否为Date
- * @export isDate
+ *
  * @returns {boolean}
  */
 export function isDate(value) {
@@ -100,7 +100,7 @@ export function isDate(value) {
 
 /**
  * 判断值是否为Plain Object
- * @export isPlainObject
+ *
  * @returns {boolean}
  */
 export function isPlainObject(value) {
@@ -109,7 +109,7 @@ export function isPlainObject(value) {
 
 /**
  * 判断值是否类似array
- * @export isLikeArray
+ *
  * @returns {boolean}
  */
 export function isLikeArray(value) {
@@ -118,7 +118,7 @@ export function isLikeArray(value) {
 
 /**
  * 判断值是否为Array
- * @export isArray
+ *
  * @returns {boolean}
  */
 export  let isArray = Array.isArray ||
@@ -128,7 +128,7 @@ export  let isArray = Array.isArray ||
 
 /**
  * 判断值是否为boolean
- * @export isBoolean
+ *
  * @returns {boolean}
  */
 export function isBoolean(value) {

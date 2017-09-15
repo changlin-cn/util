@@ -39,13 +39,18 @@ import {isType,isString} from  'changlin-util/dist/is'
 <a name="module_string"></a>
 
 ## string
+
+* [string](#module_string)
+    * [.trim(string, fe, char)](#module_string.trim) ⇒ <code>string</code>
+    * [.encodeUnicode(str)](#module_string.encodeUnicode) ⇒ <code>string</code>
+    * [.decodeUnicode(str)](#module_string.decodeUnicode) ⇒ <code>string</code>
+
 <a name="module_string.trim"></a>
 
 ### string.trim(string, fe, char) ⇒ <code>string</code>
 字符串两端剪切
 
 **Kind**: static method of [<code>string</code>](#module_string)  
-**Export**: trim  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -55,6 +60,32 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 **Example**  
 ```javascripttrim('   abc   ')//=>'abc'trim('   abc   ','f')//=>'abc   'trim('   abc   ','e')//=>'   abc'trim('**abc**','*')//=>'abc'```
+<a name="module_string.encodeUnicode"></a>
+
+### string.encodeUnicode(str) ⇒ <code>string</code>
+字符转unicode
+
+**Kind**: static method of [<code>string</code>](#module_string)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | 需要转码的字符串 |
+
+**Example**  
+```javascript encodeUnicode('啊abc123.') //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"```
+<a name="module_string.decodeUnicode"></a>
+
+### string.decodeUnicode(str) ⇒ <code>string</code>
+unicode字符串解码
+
+**Kind**: static method of [<code>string</code>](#module_string)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| str | <code>string</code> | 需要解码的字符串 |
+
+**Example**  
+```javascript decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e') //=>"啊abc123."```
 <a name="module_array"></a>
 
 ## array
@@ -64,7 +95,6 @@ import {isType,isString} from  'changlin-util/dist/is'
 从数组中移除某些项
 
 **Kind**: static method of [<code>array</code>](#module_array)  
-**Export**: removeFromArray  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -92,39 +122,32 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 ### date.ONE_SEC
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_SEC  
 <a name="module_date.ONE_MIN"></a>
 
 ### date.ONE_MIN
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_MIN  
 <a name="module_date.ONE_HOUR"></a>
 
 ### date.ONE_HOUR
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_HOUR  
 <a name="module_date.ONE_DAY"></a>
 
 ### date.ONE_DAY
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_DAY  
 <a name="module_date.ONE_MONTH"></a>
 
 ### date.ONE_MONTH
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_MONTH  
 <a name="module_date.ONE_YEAR"></a>
 
 ### date.ONE_YEAR
 **Kind**: static constant of [<code>date</code>](#module_date)  
-**Export**: ONE_YEAR  
 <a name="module_date.dateFormat"></a>
 
 ### date.dateFormat(date, format) ⇒ <code>string</code>
 时间格式化
 
 **Kind**: static method of [<code>date</code>](#module_date)  
-**Export**: dateFormat  
 
 | Param | Type |
 | --- | --- |
@@ -136,8 +159,9 @@ import {isType,isString} from  'changlin-util/dist/is'
 <a name="module_date.fromTime"></a>
 
 ### date.fromTime(from, now) ⇒ <code>string</code>
+获取时间段
+
 **Kind**: static method of [<code>date</code>](#module_date)  
-**Export**: fromTime获取时间段  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -155,7 +179,6 @@ import {isType,isString} from  'changlin-util/dist/is'
 对象扩展
 
 **Kind**: static method of [<code>extend</code>](#module_extend)  
-**Export**: extend  
 
 | Param | Type |
 | --- | --- |
@@ -189,14 +212,12 @@ import {isType,isString} from  'changlin-util/dist/is'
 判断值是否为Array
 
 **Kind**: static property of [<code>is</code>](#module_is)  
-**Export**: isArray  
 <a name="module_is.isType"></a>
 
 ### is.isType(type, string) ⇒ <code>boolean</code>
 类型判断
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isType  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -211,78 +232,69 @@ import {isType,isString} from  'changlin-util/dist/is'
 判断值是否为function
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isFunction  
 <a name="module_is.isUndefined"></a>
 
 ### is.isUndefined() ⇒ <code>boolean</code>
 判断值是否为undefined
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isUndefined  
 <a name="module_is.isWindow"></a>
 
 ### is.isWindow() ⇒ <code>boolean</code>
 判断值是否为window
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isWindow  
 <a name="module_is.isString"></a>
 
 ### is.isString() ⇒ <code>boolean</code>
 判断值是否为string
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isString  
 <a name="module_is.isNumber"></a>
 
 ### is.isNumber() ⇒ <code>boolean</code>
 判断值是否为number
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isNumber  
 <a name="module_is.isObject"></a>
 
 ### is.isObject() ⇒ <code>boolean</code>
 判断值是否为object
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isObject  
 <a name="module_is.isDate"></a>
 
 ### is.isDate() ⇒ <code>boolean</code>
 判断值是否为Date
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isDate  
 <a name="module_is.isPlainObject"></a>
 
 ### is.isPlainObject() ⇒ <code>boolean</code>
 判断值是否为Plain Object
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isPlainObject  
 <a name="module_is.isLikeArray"></a>
 
 ### is.isLikeArray() ⇒ <code>boolean</code>
 判断值是否类似array
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isLikeArray  
 <a name="module_is.isBoolean"></a>
 
 ### is.isBoolean() ⇒ <code>boolean</code>
 判断值是否为boolean
 
 **Kind**: static method of [<code>is</code>](#module_is)  
-**Export**: isBoolean  
 <a name="module_regex"></a>
 
 ## regex
-<a name="module_regex..regex"></a>
+<a name="module_regex.regex"></a>
 
-### regex~regex
-**Kind**: inner property of [<code>regex</code>](#module_regex)  
-**Export**: regex 常用正则表达式  
+### regex.regex
+常用正则表达式
+
+**Kind**: static property of [<code>regex</code>](#module_regex)  
 **Properties**
 
 | Name |

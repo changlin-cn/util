@@ -5,33 +5,33 @@
 import {isDate, isString, isNumber, isType} from './is'
 
 /**
- * @export ONE_SEC
+ *
  * */
 
 
 export  const ONE_SEC   = 1000;
 /**
- * @export ONE_MIN
+ *
  * */
 
 export  const  ONE_MIN   = 60 * 1000;
 /**
- * @export ONE_HOUR
+ *
  * */
 
 export  const  ONE_HOUR  = 60 * 60 * 1000;
 /**
- * @export ONE_DAY
+ *
  * */
 
 export  const  ONE_DAY   = 24 * 60 * 60 * 1000;
 /**
- * @export ONE_MONTH
+ *
  * */
 
 export  const  ONE_MONTH = 31 * 24 * 60 * 60 * 1000;
 /**
- * @export ONE_YEAR
+ *
  * */
 export  const  ONE_YEAR  = 366 * 24 * 60 * 60 * 1000;
 
@@ -54,7 +54,7 @@ function _stringNumberToDate(date) {
 
 /**
  * 时间格式化
- *@export  dateFormat
+ *
  * @param {Date | string | number}  date
  * @param {string} format
  * @example
@@ -88,7 +88,7 @@ export function dateFormat(date, format) {
 }
 
 /**
- * @export  fromTime
+ *
  * 获取时间段
  * @param {Date | string | number}  from  较远的时间
  * @param {Date | string | number | undefined}  now 较近的时间
@@ -123,3 +123,4 @@ export function fromTime(from, now = new Date()) {
         return parseInt(time / ONE_YEAR) + "年前";
     }
 }
+

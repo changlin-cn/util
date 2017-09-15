@@ -2,7 +2,7 @@
 
 let expect = require('chai').expect;
 
-module.exports = function (dateFormat, fromTime,ONE_MIN) {
+module.exports = function ({dateFormat, fromTime,ONE_MIN}) {
     
     describe('dateFormat :   ', function () {
         let LocOffset=new Date().getTimezoneOffset();

@@ -24,7 +24,7 @@ function _extend(...a) {
 
 /**
  * 对象扩展
- * @export extend
+ *
  * @param {boolean|object} deep
  * @param {object} target
  * @param {object} source

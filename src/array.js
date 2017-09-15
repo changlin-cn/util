@@ -6,7 +6,7 @@ import {isArray,isFunction,isNumber} from './is'
 
 /**
  * 从数组中移除某些项
- * @export removeFromArray
+ *
  * @param {Array}  arr
  * @param {Number | function}  condition  if(number&&arr[number] remove arr[number] ; if(fn(item))remove item
  *@param {Number}  number
