@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", {
  */
 
 /**
- * @export regex 常用正则表达式
+ *  常用正则表达式
  *
  * @property  number
  * @property  empty
@@ -24,7 +24,7 @@ Object.defineProperty(exports, "__esModule", {
  * @property  ip
  *
  */
-var regex = {
+var regex = exports.regex = {
 
   number: /^-?((\d+(\.\d*)?)|(\.\d+))$/,
   empty: /^$/,
@@ -36,8 +36,6 @@ var regex = {
   mobilePhone: /^(\+?\d{2,4})?1\d{10}$/,
   email: /^[a-z]([a-z0-9]*[-_]?[a-z0-9]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i,
   account: /^[a-z][\w]{5,15}$/i,
-  IdCard: /^((\d{15})|(\d{18})|(\d{17}(x|X)))$/,
+  IdCard: /^((\d{15})|(\d{18})|(\d{17}[xX]))$/,
   ip: /^((1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]))(\.((1[0-9][0-9])|(2[0-4][0-9])|(25[0-5])|([1-9][0-9])|([0-9]))){3}$/
 };
-
-exports.regex = regex;

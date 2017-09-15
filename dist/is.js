@@ -34,7 +34,7 @@ var class2type = {},
 
 /**
  * 类型判断
- * @export isType
+ *
  * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
  * @param {string}  string
  * @example
@@ -64,7 +64,7 @@ function isType(type, string) {
 
 /**
  * 判断值是否为function
- * @export isFunction
+ *
  * @returns {boolean}
  */
 function isFunction(value) {
@@ -73,7 +73,7 @@ function isFunction(value) {
 
 /**
  * 判断值是否为undefined
- * @export isUndefined
+ *
  * @returns {boolean}
  */
 function isUndefined(value) {
@@ -82,7 +82,7 @@ function isUndefined(value) {
 
 /**
  * 判断值是否为window
- * @export isWindow
+ *
  * @returns {boolean}
  */
 function isWindow(value) {
@@ -91,7 +91,7 @@ function isWindow(value) {
 
 /**
  * 判断值是否为string
- * @export isString
+ *
  * @returns {boolean}
  */
 function isString(value) {
@@ -100,7 +100,7 @@ function isString(value) {
 
 /**
  * 判断值是否为number
- * @export isNumber
+ *
  * @returns {boolean}
  */
 function isNumber(value) {
@@ -109,7 +109,7 @@ function isNumber(value) {
 
 /**
  * 判断值是否为object
- * @export isObject
+ *
  * @returns {boolean}
  */
 function isObject(value) {
@@ -118,7 +118,7 @@ function isObject(value) {
 
 /**
  * 判断值是否为Date
- * @export isDate
+ *
  * @returns {boolean}
  */
 function isDate(value) {
@@ -127,7 +127,7 @@ function isDate(value) {
 
 /**
  * 判断值是否为Plain Object
- * @export isPlainObject
+ *
  * @returns {boolean}
  */
 function isPlainObject(value) {
@@ -136,7 +136,7 @@ function isPlainObject(value) {
 
 /**
  * 判断值是否类似array
- * @export isLikeArray
+ *
  * @returns {boolean}
  */
 function isLikeArray(value) {
@@ -145,7 +145,7 @@ function isLikeArray(value) {
 
 /**
  * 判断值是否为Array
- * @export isArray
+ *
  * @returns {boolean}
  */
 var isArray = exports.isArray = Array.isArray || function (value) {
@@ -154,7 +154,7 @@ var isArray = exports.isArray = Array.isArray || function (value) {
 
 /**
  * 判断值是否为boolean
- * @export isBoolean
+ *
  * @returns {boolean}
  */
 function isBoolean(value) {

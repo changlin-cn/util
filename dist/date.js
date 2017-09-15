@@ -10,12 +10,12 @@ exports.fromTime = fromTime;
 var _is = require('./is');
 
 /**
- * @export ONE_SEC
+ *
  * */
 
 var ONE_SEC = exports.ONE_SEC = 1000;
 /**
- * @export ONE_MIN
+ *
  * */
 
 /**
@@ -24,22 +24,22 @@ var ONE_SEC = exports.ONE_SEC = 1000;
 
 var ONE_MIN = exports.ONE_MIN = 60 * 1000;
 /**
- * @export ONE_HOUR
+ *
  * */
 
 var ONE_HOUR = exports.ONE_HOUR = 60 * 60 * 1000;
 /**
- * @export ONE_DAY
+ *
  * */
 
 var ONE_DAY = exports.ONE_DAY = 24 * 60 * 60 * 1000;
 /**
- * @export ONE_MONTH
+ *
  * */
 
 var ONE_MONTH = exports.ONE_MONTH = 31 * 24 * 60 * 60 * 1000;
 /**
- * @export ONE_YEAR
+ *
  * */
 var ONE_YEAR = exports.ONE_YEAR = 366 * 24 * 60 * 60 * 1000;
 
@@ -61,7 +61,7 @@ function _stringNumberToDate(date) {
 
 /**
  * 时间格式化
- *@export  dateFormat
+ *
  * @param {Date | string | number}  date
  * @param {string} format
  * @example
@@ -93,7 +93,7 @@ function dateFormat(date, format) {
 }
 
 /**
- * @export  fromTime
+ *
  * 获取时间段
  * @param {Date | string | number}  from  较远的时间
  * @param {Date | string | number | undefined}  now 较近的时间

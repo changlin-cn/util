@@ -9,6 +9,7 @@ var _typeof2 = require('babel-runtime/helpers/typeof');
 var _typeof3 = _interopRequireDefault(_typeof2);
 
 exports.removeFromArray = removeFromArray;
+exports.sort = sort;
 
 var _is = require('./is');
 
@@ -16,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 /**
  * 从数组中移除某些项
- * @export removeFromArray
+ *
  * @param {Array}  arr
  * @param {Number | function}  condition  if(number&&arr[number] remove arr[number] ; if(fn(item))remove item
  *@param {Number}  number
@@ -57,6 +58,51 @@ function removeFromArray(arr, condition) {
         return items;
     }
     return items;
-} /**
-   * @module array
-   */
+}
+
+/**
+ * 排序
+ *
+ * @param {Array}  arr
+ * @param {function}  compare  比较函数
+ * @example
+ * ```javascript
+ * let a=[1,3,,,2];
+ * sort(a,()=>true)//=>[2,3,1,undefined,undefined]
+ * a//=>[2,3,1,undefined,undefined]
+ *
+ * let arrb=[1,3,5,4,2,7,6]
+ * sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]
+ *
+ * ```
+ *
+ * @returns {Array}
+ */
+/**
+ * @module array
+ */
+
+function sort(arr, compare) {
+    if (!(0, _is.isFunction)(compare) || !(0, _is.isArray)(arr)) {
+        throw new Error('arguments is not expected');
+    }
+    var i = void 0,
+        j = void 0;
+    for (i = 1; i < arr.length; i++) {
+        for (j = i - 1; j > -1; j--) {
+            var res = void 0;
+            try {
+                if ((0, _is.isUndefined)(arr[j + 1])) {}
+                res = compare(arr[j], arr[j + 1]);
+            } catch (e) {
+                res = false;
+            }
+            if (res) {
+                arr.splice(j, 0, arr.splice(j + 1, 1)[0]);
+            } else {
+                break;
+            }
+        }
+    }
+    return arr;
+}

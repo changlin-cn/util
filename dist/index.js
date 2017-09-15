@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.removeFromArray = exports.trim = exports.regex = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
+exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.removeFromArray = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
 
 var _extend = require('./extend.js');
 
@@ -104,6 +104,18 @@ Object.defineProperty(exports, 'trim', {
   enumerable: true,
   get: function get() {
     return _string.trim;
+  }
+});
+Object.defineProperty(exports, 'decodeUnicode', {
+  enumerable: true,
+  get: function get() {
+    return _string.decodeUnicode;
+  }
+});
+Object.defineProperty(exports, 'encodeToUnicode', {
+  enumerable: true,
+  get: function get() {
+    return _string.encodeToUnicode;
   }
 });
 
