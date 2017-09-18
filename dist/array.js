@@ -91,11 +91,17 @@ function sort(arr, compare) {
     for (i = 1; i < arr.length; i++) {
         for (j = i - 1; j > -1; j--) {
             var res = void 0;
-            try {
-                if ((0, _is.isUndefined)(arr[j + 1])) {}
-                res = compare(arr[j], arr[j + 1]);
-            } catch (e) {
-                res = false;
+            if ((0, _is.isUndefined)(arr[j + 1])) {
+                break;
+            } else if ((0, _is.isUndefined)(arr[j])) {
+                res = true;
+            } else {
+                try {
+                    res = compare(arr[j], arr[j + 1]);
+                } catch (e) {
+                    res = false;
+                    break;
+                }
             }
             if (res) {
                 arr.splice(j, 0, arr.splice(j + 1, 1)[0]);

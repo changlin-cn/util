@@ -42,7 +42,7 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 * [string](#module_string)
     * [.trim(string, fe, char)](#module_string.trim) ⇒ <code>string</code>
-    * [.encodeUnicode(str)](#module_string.encodeUnicode) ⇒ <code>string</code>
+    * [.encodeToUnicode(str)](#module_string.encodeToUnicode) ⇒ <code>string</code>
     * [.decodeUnicode(str)](#module_string.decodeUnicode) ⇒ <code>string</code>
 
 <a name="module_string.trim"></a>
@@ -60,9 +60,9 @@ import {isType,isString} from  'changlin-util/dist/is'
 
 **Example**  
 ```javascripttrim('   abc   ')//=>'abc'trim('   abc   ','f')//=>'abc   'trim('   abc   ','e')//=>'   abc'trim('**abc**','*')//=>'abc'```
-<a name="module_string.encodeUnicode"></a>
+<a name="module_string.encodeToUnicode"></a>
 
-### string.encodeUnicode(str) ⇒ <code>string</code>
+### string.encodeToUnicode(str) ⇒ <code>string</code>
 字符转unicode
 
 **Kind**: static method of [<code>string</code>](#module_string)  
@@ -72,7 +72,7 @@ import {isType,isString} from  'changlin-util/dist/is'
 | str | <code>string</code> | 需要转码的字符串 |
 
 **Example**  
-```javascript encodeUnicode('啊abc123.') //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"```
+```javascript encodeToUnicode('啊abc123.') //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"```
 <a name="module_string.decodeUnicode"></a>
 
 ### string.decodeUnicode(str) ⇒ <code>string</code>
@@ -89,6 +89,11 @@ unicode字符串解码
 <a name="module_array"></a>
 
 ## array
+
+* [array](#module_array)
+    * [.removeFromArray(arr, condition, number)](#module_array.removeFromArray) ⇒ <code>Array</code>
+    * [.sort(arr, compare)](#module_array.sort) ⇒ <code>Array</code>
+
 <a name="module_array.removeFromArray"></a>
 
 ### array.removeFromArray(arr, condition, number) ⇒ <code>Array</code>
@@ -104,6 +109,20 @@ unicode字符串解码
 
 **Example**  
 ```javascriptlet a=[1,2,3];removeFromArray(a,1)//=>[2]a//=>[1,3]let b=[{id:1},{id:2},{id:3}];removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]b//=>[{id:1},{id:2}]```
+<a name="module_array.sort"></a>
+
+### array.sort(arr, compare) ⇒ <code>Array</code>
+排序
+
+**Kind**: static method of [<code>array</code>](#module_array)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| arr | <code>Array</code> |  |
+| compare | <code>function</code> | 比较函数 |
+
+**Example**  
+```javascriptlet a=[1,3,,,2];sort(a,()=>true)//=>[2,3,1,undefined,undefined]a//=>[2,3,1,undefined,undefined]let arrb=[1,3,5,4,2,7,6]sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]```
 <a name="module_date"></a>
 
 ## date
