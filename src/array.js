@@ -2,7 +2,38 @@
  * @module array
  */
 
-import {isArray,isFunction,isNumber,isUndefined} from './is'
+import {isArray,isFunction,isNumber,isUndefined,whatIsIt,isLikeArray} from './is'
+
+
+
+
+/**
+ * 类数组对象转化为数组
+ *
+ * @param {Object}  s
+ * @example
+ * ```javascript
+ *toArray({'0':123,'2':456,length:3})
+ * //=>[123,456,undefined]
+ * ```
+ *
+ * @returns {Array}
+ */
+export function toArray(s){
+    if(!isLikeArray(s)){
+        throw new Error('s should be like array')
+    }
+    try{
+        return Array.prototype.slice.call(s);
+    } catch(e){
+        let arr = [];
+        for(let i = 0,len = s.length; i < len; i++){
+            arr[i] = s[i];
+        }
+        return arr;
+    }
+}
+
 
 /**
  * 从数组中移除某些项
@@ -95,6 +126,40 @@ export function sort(arr,compare){
     }
     return arr;
 }
+
+/**
+ * 乱序。返回原（类）数组
+ *
+ * @param {Array}  arr
+ * @example
+ * ```javascript
+ *
+ * ```
+ *
+ * @returns {Array}
+ */
+export function shuffle(arr){
+    let source ;
+    if(!isArray(arr)){
+        if(isLikeArray(arr)){
+            source=toArray(arr);
+        }else{
+            throw new Error(`arr should be array but got ${whatIsIt(arr)}`)
+        }
+        
+    }else{
+        source=arr
+    }
+   let temp=source.slice(0);
+    for(let i=0,l=i.length;i<l;i++){
+    
+    }
+    
+    return arr;
+}
+
+
+
 
 
 

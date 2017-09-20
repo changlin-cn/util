@@ -59,7 +59,7 @@ export function isUndefined(value) {
  * @returns {boolean}
  */
 export function isWindow(value) {
-    return toString.call(value).toLowerCase() === "[object window]"
+    return whatIsIt(value)=== "window"
 }
 
 /**
@@ -86,7 +86,7 @@ export function isNumber(value) {
  * @returns {boolean}
  */
 export function isObject(value) {
-    return typeof value === "object" && value !== null;
+    return whatIsIt(value) === "object";
 }
 
 /**
@@ -95,7 +95,7 @@ export function isObject(value) {
  * @returns {boolean}
  */
 export function isDate(value) {
-    return isObject(value) && toString.call(value).toLowerCase() === "[object date]";
+    return  whatIsIt(value)=== "date";
 }
 
 /**
@@ -123,7 +123,7 @@ export function isLikeArray(value) {
  */
 export  let isArray = Array.isArray ||
     function (value) {
-        return toString.call(value).toLowerCase() === '[object array]'
+        return toString.call(value) === '[object Array]'
     };
 
 /**
@@ -133,6 +133,15 @@ export  let isArray = Array.isArray ||
  */
 export function isBoolean(value) {
     return typeof value === 'boolean'
+}
+
+/**
+ * 判断值的类型
+ *
+ * @returns {string}
+ */
+export function whatIsIt(value) {
+    return /(?:(\S*)\])/.exec( toString.call(value) )[1].toLowerCase()
 }
 
 
