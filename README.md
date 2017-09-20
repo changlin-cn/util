@@ -38,6 +38,8 @@ import {isType,isString} from  'changlin-util/dist/is'
 <dl>
 <dt><a href="#module_string">string</a></dt>
 <dd></dd>
+<dt><a href="#module_math">math</a></dt>
+<dd></dd>
 <dt><a href="#module_array">array</a></dt>
 <dd></dd>
 <dt><a href="#module_date">date</a></dt>
@@ -111,6 +113,28 @@ unicode字符串解码
 ```javascript
  decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e')
  //=>"啊abc123."
+
+```
+<a name="module_math"></a>
+
+## math
+<a name="module_math.randomInteger"></a>
+
+### math.randomInteger(min, max) ⇒ <code>number</code>
+生成一定范围内的随机整数 （包括端点）
+
+**Kind**: static method of [<code>math</code>](#module_math)  
+
+| Param | Type |
+| --- | --- |
+| min | <code>number</code> | 
+| max | <code>number</code> | 
+
+**Example**  
+```javascript
+let res=randomInteger(4)
+res>=0&&res<=4      //true
+isType('integer',res)//true
 
 ```
 <a name="module_array"></a>
