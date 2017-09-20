@@ -11,7 +11,21 @@ module.exports.tpl=`
 \`\`\`javascript
 npm install changlin-util
 
-import {isType,isObject,isString,extend,regex,trim,removeFromArray,is} from 'changlin-util'
+import {
+    isType,
+    isObject,
+    isString,
+    extend,
+    regex,
+    trim,
+    removeFromArray,
+    is,
+    shuffle,
+    randomInteger,
+    toArray,
+    whatIs
+} from 'changlin-util'
+//或者
 import {isType,isString} from  'changlin-util/dist/is'
 \`\`\`
 

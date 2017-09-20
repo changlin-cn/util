@@ -8,12 +8,47 @@ var _typeof2 = require('babel-runtime/helpers/typeof');
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
+exports.toArray = toArray;
 exports.removeFromArray = removeFromArray;
 exports.sort = sort;
+exports.shuffle = shuffle;
 
 var _is = require('./is');
 
+var _math = require('./math.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * 类数组对象转化为数组
+ *
+ * @param {Object}  s
+ * @example
+ * ```javascript
+ *toArray({'0':123,'2':456,length:3})
+ * //=>[123,456,undefined]
+ * ```
+ *
+ * @returns {Array}
+ */
+/**
+ * @module array
+ */
+
+function toArray(s) {
+    if (!(0, _is.isLikeArray)(s)) {
+        throw new Error('s should be like array');
+    }
+    try {
+        return Array.prototype.slice.call(s);
+    } catch (e) {
+        var arr = [];
+        for (var i = 0, len = s.length; i < len; i++) {
+            arr[i] = s[i];
+        }
+        return arr;
+    }
+}
 
 /**
  * 从数组中移除某些项
@@ -78,10 +113,6 @@ function removeFromArray(arr, condition) {
  *
  * @returns {Array}
  */
-/**
- * @module array
- */
-
 function sort(arr, compare) {
     if (!(0, _is.isFunction)(compare) || !(0, _is.isArray)(arr)) {
         throw new Error('arguments is not expected');
@@ -110,5 +141,39 @@ function sort(arr, compare) {
             }
         }
     }
+    return arr;
+}
+
+/**
+ * 乱序。返回原（类）数组
+ *
+ * @param {Array}  arr
+ * @example
+ * ```javascript
+ * let arr1=[1,2,3];
+ * let res=shuffle(arr1);
+ * res===arr1//=>true
+ * res.length===3//true
+ * ```
+ *
+ * @returns {Array}
+ */
+function shuffle(arr) {
+    var source = void 0;
+    if (!(0, _is.isArray)(arr)) {
+        if ((0, _is.isLikeArray)(arr)) {
+            source = toArray(arr);
+        } else {
+            throw new Error('arr should be array but got ' + (0, _is.whatIs)(arr));
+        }
+    } else {
+        source = arr;
+    }
+    var temp = source.slice(0);
+    for (var i = 0, l = arr.length; i < l; i++) {
+        var n = (0, _math.randomInteger)(l - i - 1);
+        arr[i] = temp.splice(n, 1)[0];
+    }
+
     return arr;
 }

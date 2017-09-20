@@ -12,7 +12,7 @@ let
  * 类型判断
  *
  * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
- * @param {string}  string
+ * @param {string|number}  string
  * @example
  *
  *
@@ -22,7 +22,7 @@ let
  * @returns {boolean}
  */
 export function isType(type, string) {
-    if (isString(string)) {
+    if (isString(string)||isNumber(string)) {
         if (regex[type] && type !== 'default') {
             string = String(string);
             return regex[type].test(string)
@@ -30,7 +30,7 @@ export function isType(type, string) {
             throw Error(`unknown type ${type}`);
         }
     } else {
-        throw Error('type should be string');
+        throw Error('type should be string or number');
     }
 }
 
@@ -59,7 +59,7 @@ export function isUndefined(value) {
  * @returns {boolean}
  */
 export function isWindow(value) {
-    return whatIsIt(value)=== "window"
+    return whatIs(value)=== "window"
 }
 
 /**
@@ -86,7 +86,7 @@ export function isNumber(value) {
  * @returns {boolean}
  */
 export function isObject(value) {
-    return whatIsIt(value) === "object";
+    return whatIs(value) === "object";
 }
 
 /**
@@ -95,7 +95,7 @@ export function isObject(value) {
  * @returns {boolean}
  */
 export function isDate(value) {
-    return  whatIsIt(value)=== "date";
+    return  whatIs(value)=== "date";
 }
 
 /**
@@ -137,11 +137,16 @@ export function isBoolean(value) {
 
 /**
  * 判断值的类型
+ *@example
+ *```javascript
+ *whatIs(new Date())//=>'date'
+ * whatIs(null)//=>'null'
  *
+ *```
  * @returns {string}
  */
-export function whatIsIt(value) {
-    return /(?:(\S*)\])/.exec( toString.call(value) )[1].toLowerCase()
+export function whatIs(value) {
+    return /(?:(\S*)])/.exec( toString.call(value) )[1].toLowerCase()
 }
 
 

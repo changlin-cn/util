@@ -11,7 +11,21 @@
 ```javascript
 npm install changlin-util
 
-import {isType,isObject,isString,extend,regex,trim,removeFromArray,is} from 'changlin-util'
+import {
+    isType,
+    isObject,
+    isString,
+    extend,
+    regex,
+    trim,
+    removeFromArray,
+    is,
+    shuffle,
+    randomInteger,
+    toArray,
+    whatIs
+} from 'changlin-util'
+//或者
 import {isType,isString} from  'changlin-util/dist/is'
 ```
 
@@ -59,7 +73,12 @@ import {isType,isString} from  'changlin-util/dist/is'
 | char | <code>string</code> |  |
 
 **Example**  
-```javascripttrim('   abc   ')//=>'abc'trim('   abc   ','f')//=>'abc   'trim('   abc   ','e')//=>'   abc'trim('**abc**','*')//=>'abc'```
+```javascript
+trim('   abc   ')//=>'abc'
+trim('   abc   ','f')//=>'abc   '
+trim('   abc   ','e')//=>'   abc'
+trim('**abc**','*')//=>'abc'
+```
 <a name="module_string.encodeToUnicode"></a>
 
 ### string.encodeToUnicode(str) ⇒ <code>string</code>
@@ -72,7 +91,11 @@ import {isType,isString} from  'changlin-util/dist/is'
 | str | <code>string</code> | 需要转码的字符串 |
 
 **Example**  
-```javascript encodeToUnicode('啊abc123.') //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"```
+```javascript
+ encodeToUnicode('啊abc123.')
+ //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"
+
+```
 <a name="module_string.decodeUnicode"></a>
 
 ### string.decodeUnicode(str) ⇒ <code>string</code>
@@ -85,15 +108,37 @@ unicode字符串解码
 | str | <code>string</code> | 需要解码的字符串 |
 
 **Example**  
-```javascript decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e') //=>"啊abc123."```
+```javascript
+ decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e')
+ //=>"啊abc123."
+
+```
 <a name="module_array"></a>
 
 ## array
 
 * [array](#module_array)
+    * [.toArray(s)](#module_array.toArray) ⇒ <code>Array</code>
     * [.removeFromArray(arr, condition, number)](#module_array.removeFromArray) ⇒ <code>Array</code>
     * [.sort(arr, compare)](#module_array.sort) ⇒ <code>Array</code>
+    * [.shuffle(arr)](#module_array.shuffle) ⇒ <code>Array</code>
 
+<a name="module_array.toArray"></a>
+
+### array.toArray(s) ⇒ <code>Array</code>
+类数组对象转化为数组
+
+**Kind**: static method of [<code>array</code>](#module_array)  
+
+| Param | Type |
+| --- | --- |
+| s | <code>Object</code> | 
+
+**Example**  
+```javascript
+toArray({'0':123,'2':456,length:3})
+//=>[123,456,undefined]
+```
 <a name="module_array.removeFromArray"></a>
 
 ### array.removeFromArray(arr, condition, number) ⇒ <code>Array</code>
@@ -108,7 +153,15 @@ unicode字符串解码
 | number | <code>Number</code> |  |
 
 **Example**  
-```javascriptlet a=[1,2,3];removeFromArray(a,1)//=>[2]a//=>[1,3]let b=[{id:1},{id:2},{id:3}];removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]b//=>[{id:1},{id:2}]```
+```javascript
+let a=[1,2,3];
+removeFromArray(a,1)//=>[2]
+a//=>[1,3]
+
+let b=[{id:1},{id:2},{id:3}];
+removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]
+b//=>[{id:1},{id:2}]
+```
 <a name="module_array.sort"></a>
 
 ### array.sort(arr, compare) ⇒ <code>Array</code>
@@ -122,7 +175,33 @@ unicode字符串解码
 | compare | <code>function</code> | 比较函数 |
 
 **Example**  
-```javascriptlet a=[1,3,,,2];sort(a,()=>true)//=>[2,3,1,undefined,undefined]a//=>[2,3,1,undefined,undefined]let arrb=[1,3,5,4,2,7,6]sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]```
+```javascript
+let a=[1,3,,,2];
+sort(a,()=>true)//=>[2,3,1,undefined,undefined]
+a//=>[2,3,1,undefined,undefined]
+
+let arrb=[1,3,5,4,2,7,6]
+sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]
+
+```
+<a name="module_array.shuffle"></a>
+
+### array.shuffle(arr) ⇒ <code>Array</code>
+乱序。返回原（类）数组
+
+**Kind**: static method of [<code>array</code>](#module_array)  
+
+| Param | Type |
+| --- | --- |
+| arr | <code>Array</code> | 
+
+**Example**  
+```javascript
+let arr1=[1,2,3];
+let res=shuffle(arr1);
+res===arr1//=>true
+res.length===3//true
+```
 <a name="module_date"></a>
 
 ## date
@@ -174,7 +253,10 @@ unicode字符串解码
 | format | <code>string</code> | 
 
 **Example**  
-```javascriptdateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11```
+```javascript
+dateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')
+dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
+```
 <a name="module_date.fromTime"></a>
 
 ### date.fromTime(from, now) ⇒ <code>string</code>
@@ -188,7 +270,11 @@ unicode字符串解码
 | now | <code>Date</code> \| <code>string</code> \| <code>number</code> \| <code>undefined</code> | 较近的时间 |
 
 **Example**  
-```javascript let t1 = new Date(1478836800000); let t2 = new Date(1478836800100);  fromTime(t1, t2) //=>刚刚```
+```javascript
+ let t1 = new Date(1478836800000);
+ let t2 = new Date(1478836800100);
+  fromTime(t1, t2) //=>刚刚
+```
 <a name="module_extend"></a>
 
 ## extend
@@ -206,7 +292,19 @@ unicode字符串解码
 | source | <code>object</code> | 
 
 **Example**  
-```javascript//deep  false let source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(false, {}, source);source.c.c1 = 4;res.c.c1===4//=>true//deep truelet source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(true, {}, source);source.c.c1 = 4;res.c.c1===4//=>false```
+```javascript
+//deep  false
+ let source  = {a: 1, b: 2, c: {c1: 1}};
+let res  = extend(false, {}, source);
+source.c.c1 = 4;
+res.c.c1===4//=>true
+
+//deep true
+let source  = {a: 1, b: 2, c: {c1: 1}};
+let res  = extend(true, {}, source);
+source.c.c1 = 4;
+res.c.c1===4//=>false
+```
 <a name="module_is"></a>
 
 ## is
@@ -224,6 +322,7 @@ unicode字符串解码
     * [.isPlainObject()](#module_is.isPlainObject) ⇒ <code>boolean</code>
     * [.isLikeArray()](#module_is.isLikeArray) ⇒ <code>boolean</code>
     * [.isBoolean()](#module_is.isBoolean) ⇒ <code>boolean</code>
+    * [.whatIs()](#module_is.whatIs) ⇒ <code>string</code>
 
 <a name="module_is.isArray"></a>
 
@@ -241,10 +340,12 @@ unicode字符串解码
 | Param | Type | Description |
 | --- | --- | --- |
 | type | <code>string</code> | url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性 |
-| string | <code>string</code> |  |
+| string | <code>string</code> \| <code>number</code> |  |
 
 **Example**  
-```javascriptisType('email','user@163.com')   //=>true```
+```javascript
+isType('email','user@163.com')   //=>true
+```
 <a name="module_is.isFunction"></a>
 
 ### is.isFunction() ⇒ <code>boolean</code>
@@ -305,6 +406,18 @@ unicode字符串解码
 判断值是否为boolean
 
 **Kind**: static method of [<code>is</code>](#module_is)  
+<a name="module_is.whatIs"></a>
+
+### is.whatIs() ⇒ <code>string</code>
+判断值的类型
+
+**Kind**: static method of [<code>is</code>](#module_is)  
+**Example**  
+```javascript
+whatIs(new Date())//=>'date'
+whatIs(null)//=>'null'
+
+```
 <a name="module_regex"></a>
 
 ## regex

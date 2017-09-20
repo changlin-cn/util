@@ -2,8 +2,8 @@
  * @module array
  */
 
-import {isArray,isFunction,isNumber,isUndefined,whatIsIt,isLikeArray} from './is'
-
+import {isArray,isFunction,isNumber,isUndefined,whatIs,isLikeArray} from './is'
+import {randomInteger} from './math.js'
 
 
 
@@ -133,7 +133,10 @@ export function sort(arr,compare){
  * @param {Array}  arr
  * @example
  * ```javascript
- *
+ * let arr1=[1,2,3];
+ * let res=shuffle(arr1);
+ * res===arr1//=>true
+ * res.length===3//true
  * ```
  *
  * @returns {Array}
@@ -144,15 +147,16 @@ export function shuffle(arr){
         if(isLikeArray(arr)){
             source=toArray(arr);
         }else{
-            throw new Error(`arr should be array but got ${whatIsIt(arr)}`)
+            throw new Error(`arr should be array but got ${whatIs(arr)}`)
         }
         
     }else{
         source=arr
     }
    let temp=source.slice(0);
-    for(let i=0,l=i.length;i<l;i++){
-    
+    for(let i=0,l=arr.length;i<l;i++){
+        let n=randomInteger(l-i-1);
+        arr[i]=temp.splice(n,1)[0]
     }
     
     return arr;

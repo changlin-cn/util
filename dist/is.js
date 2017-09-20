@@ -9,10 +9,6 @@ var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _typeof2 = require('babel-runtime/helpers/typeof');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
 exports.isType = isType;
 exports.isFunction = isFunction;
 exports.isUndefined = isUndefined;
@@ -24,6 +20,7 @@ exports.isDate = isDate;
 exports.isPlainObject = isPlainObject;
 exports.isLikeArray = isLikeArray;
 exports.isBoolean = isBoolean;
+exports.whatIs = whatIs;
 
 var _regex = require('./regex');
 
@@ -36,7 +33,7 @@ var class2type = {},
  * 类型判断
  *
  * @param {string}  type    url tel mobilePhone email account IdCard ip...参考regex 模块导出对象的属性
- * @param {string}  string
+ * @param {string|number}  string
  * @example
  *
  *
@@ -50,7 +47,7 @@ var class2type = {},
  */
 
 function isType(type, string) {
-    if (isString(string)) {
+    if (isString(string) || isNumber(string)) {
         if (_regex.regex[type] && type !== 'default') {
             string = String(string);
             return _regex.regex[type].test(string);
@@ -58,7 +55,7 @@ function isType(type, string) {
             throw Error('unknown type ' + type);
         }
     } else {
-        throw Error('type should be string');
+        throw Error('type should be string or number');
     }
 }
 
@@ -86,7 +83,7 @@ function isUndefined(value) {
  * @returns {boolean}
  */
 function isWindow(value) {
-    return toString.call(value).toLowerCase() === "[object window]";
+    return whatIs(value) === "window";
 }
 
 /**
@@ -113,7 +110,7 @@ function isNumber(value) {
  * @returns {boolean}
  */
 function isObject(value) {
-    return (typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value)) === "object" && value !== null;
+    return whatIs(value) === "object";
 }
 
 /**
@@ -122,7 +119,7 @@ function isObject(value) {
  * @returns {boolean}
  */
 function isDate(value) {
-    return isObject(value) && toString.call(value).toLowerCase() === "[object date]";
+    return whatIs(value) === "date";
 }
 
 /**
@@ -149,7 +146,7 @@ function isLikeArray(value) {
  * @returns {boolean}
  */
 var isArray = exports.isArray = Array.isArray || function (value) {
-    return toString.call(value).toLowerCase() === '[object array]';
+    return toString.call(value) === '[object Array]';
 };
 
 /**
@@ -159,4 +156,19 @@ var isArray = exports.isArray = Array.isArray || function (value) {
  */
 function isBoolean(value) {
     return typeof value === 'boolean';
+}
+
+/**
+ * 判断值的类型
+ *@example
+ *```javascript
+ *whatIs(new Date())//=>'date'
+ * whatIs(null)//=>'null'
+ *
+ *```
+ * @returns {string}
+ */
+function whatIs(value) {
+    return (/(?:(\S*)])/.exec(toString.call(value))[1].toLowerCase()
+    );
 }
