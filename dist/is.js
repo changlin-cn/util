@@ -9,6 +9,10 @@ var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
 exports.isType = isType;
 exports.isFunction = isFunction;
 exports.isUndefined = isUndefined;
@@ -110,7 +114,8 @@ function isNumber(value) {
  * @returns {boolean}
  */
 function isObject(value) {
-    return whatIs(value) === "object";
+    var type = typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value);
+    return value !== null && (type === 'object' || type === 'function');
 }
 
 /**

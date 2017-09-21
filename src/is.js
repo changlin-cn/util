@@ -86,7 +86,8 @@ export function isNumber(value) {
  * @returns {boolean}
  */
 export function isObject(value) {
-    return whatIs(value) === "object";
+    const type = typeof value;
+    return value !== null && (type === 'object' || type === 'function')
 }
 
 /**
