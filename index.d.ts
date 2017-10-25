@@ -39,7 +39,7 @@ declare module "changlin-util" {
 
     export function trim(string: string): string;
     export function trim(string: string,needToReplace:string): string;
-    export function trim(string: string,side:f|e,needToReplace:string): string;
+    export function trim(string: string,side:string,needToReplace:string): string;
     export function decodeUnicode(string: string): string;
     export function encodeToUnicode(string: string): string;
 
