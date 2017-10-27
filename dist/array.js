@@ -11,11 +11,14 @@ var _typeof3 = _interopRequireDefault(_typeof2);
 exports.toArray = toArray;
 exports.removeFromArray = removeFromArray;
 exports.sort = sort;
+exports.find = find;
 exports.shuffle = shuffle;
 
 var _is = require('./is');
 
 var _math = require('./math.js');
+
+var _changlinWarning = require('changlin-warning');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31,10 +34,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  *
  * @returns {Array}
  */
-/**
- * @module array
- */
-
 function toArray(s) {
     if (!(0, _is.isLikeArray)(s)) {
         throw new Error('s should be like array');
@@ -69,6 +68,10 @@ function toArray(s) {
  *
  * @returns {Array}
  */
+/**
+ * @module array
+ */
+
 function removeFromArray(arr, condition) {
     var number = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
@@ -142,6 +145,46 @@ function sort(arr, compare) {
         }
     }
     return arr;
+}
+/**
+ * 找出数组某一个元素
+ *
+ * @param {Array}  array
+ * @param {function}  fn  过滤函数
+ * @example
+ * ```javascript
+ * find([1,2,'2',3,4,5],function(a){return a==='2'})//=>'2'
+ * find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined
+ * ```
+ *
+ * @returns {any}
+ */
+function find(array, fn) {
+    if (!(0, _is.isArray)(array)) {
+        throw new Error('array should be Array type but got ' + (0, _is.whatIs)(array));
+    }
+    if ((0, _changlinWarning.warning)(!(0, _is.isFunction)(fn), 'fn is not function ,\'find\' will return undefined')) {
+        return undefined;
+    }
+
+    if (array.find) {
+        return array.find(fn);
+    }
+
+    var result = void 0;
+
+    try {
+        for (var i = 0; i < array.length; i++) {
+            if (fn(array[i])) {
+                result = array[i];
+                break;
+            }
+        }
+    } catch (e) {
+        (0, _changlinWarning.warning)(true, e);
+    }
+
+    return result;
 }
 
 /**

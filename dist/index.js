@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
+exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.find = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
 
 var _extend = require('./extend.js');
 
@@ -149,6 +149,12 @@ Object.defineProperty(exports, 'toArray', {
   enumerable: true,
   get: function get() {
     return _array.toArray;
+  }
+});
+Object.defineProperty(exports, 'find', {
+  enumerable: true,
+  get: function get() {
+    return _array.find;
   }
 });
 

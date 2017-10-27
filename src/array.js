@@ -4,7 +4,7 @@
 
 import {isArray,isFunction,isNumber,isUndefined,whatIs,isLikeArray} from './is'
 import {randomInteger} from './math.js'
-
+import {warning} from 'changlin-warning'
 
 
 /**
@@ -125,6 +125,42 @@ export function sort(arr,compare){
             }
     }
     return arr;
+}
+/**
+ * 找出数组某一个元素
+ *
+ * @param {Array}  array
+ * @param {function}  fn  过滤函数
+ * @example
+ * ```javascript
+ * find([1,2,'2',3,4,5],function(a){return a==='2'})//=>'2'
+ * find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined
+ * ```
+ *
+ * @returns {any}
+ */
+export function find(array,fn){
+    if(!isArray(array)){
+        throw new Error(`array should be Array type but got ${whatIs(array)}`)
+    }
+  if( warning(!isFunction(fn),`fn is not function ,\'find\' will return undefined`)){return undefined}
+  
+  if(array.find){return array.find(fn)}
+  
+  let result;
+  
+  try{
+      for(let i=0;i<array.length;i++){
+          if(fn(array[i])){
+              result=array[i];
+              break;
+          }
+      }
+  }catch (e){
+      warning(true,e)
+  }
+  
+    return result;
 }
 
 /**

@@ -48,6 +48,7 @@ declare module "changlin-util" {
     export function sort(array: [any],compare:(arrayElement1:any,arrayElement2:any)=>boolean): [any];
     export function shuffle(array: [any]): [any];
     export function toArray(object:object): [any];
+    export function find(array:[any],fn:()=>boolean): any;
 
     export function dateFormat(date:object,format:string): string;
     export function fromTime(from:object|number,now?:object|number): string;

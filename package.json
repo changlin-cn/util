@@ -1,6 +1,6 @@
 {
   "name": "changlin-util",
-  "version": "2.2.7",
+  "version": "2.3.0",
   "description": "some utils",
   "main": "dist/index.js",
   "scripts": {
@@ -37,6 +37,7 @@
     "mocha": "^3.5.0"
   },
   "dependencies": {
-    "babel-runtime": "^6.23.0"
+    "babel-runtime": "^6.23.0",
+    "changlin-warning": "^1.1.1"
   }
 }

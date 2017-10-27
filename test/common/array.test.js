@@ -1,6 +1,6 @@
 let expect = require('chai').expect;
 
-module.exports = function ({removeFromArray, sort, shuffle,toArray}) {
+module.exports = function ({removeFromArray, sort, shuffle,toArray,find,findSome}) {
     
     describe('removeFromArray :   ', function () {
         
@@ -30,6 +30,26 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray}) {
             }).to.throw(Error);
         });
     });
+    
+    describe('find :   ', function () {
+        it('find', function () {
+            expect(find([1,2,'2',3,4,5],function(a){return a==='2'})).to.be.equal('2');
+        });
+         it('find nothing', function () {
+            expect(find([1,2,'2',3,4,5],function(a){return a===8})).to.be.equal(undefined);
+        });
+        it('find() should throw Error', function () {
+            expect(function () {
+                find()
+            }).to.throw(Error);
+        });
+             it('find({}) should throw Error', function () {
+            expect(function () {
+                find({},function(){return true})
+            }).to.throw(Error);
+        });
+    });
+    
     describe('sort :   ', function () {
         
         

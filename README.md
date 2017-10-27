@@ -127,6 +127,7 @@ unicode字符串解码
     * [.toArray(s)](#module_array.toArray) ⇒ <code>Array</code>
     * [.removeFromArray(arr, condition, number)](#module_array.removeFromArray) ⇒ <code>Array</code>
     * [.sort(arr, compare)](#module_array.sort) ⇒ <code>Array</code>
+    * [.find(array, fn)](#module_array.find) ⇒ <code>any</code>
     * [.shuffle(arr)](#module_array.shuffle) ⇒ <code>Array</code>
 
 <a name="module_array.toArray"></a>
@@ -171,6 +172,20 @@ unicode字符串解码
 
 **Example**  
 ```javascriptlet a=[1,3,,,2];sort(a,()=>true)//=>[2,3,1,undefined,undefined]a//=>[2,3,1,undefined,undefined]let arrb=[1,3,5,4,2,7,6]sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]```
+<a name="module_array.find"></a>
+
+### array.find(array, fn) ⇒ <code>any</code>
+找出数组某一个元素
+
+**Kind**: static method of [<code>array</code>](#module_array)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| array | <code>Array</code> |  |
+| fn | <code>function</code> | 过滤函数 |
+
+**Example**  
+```javascriptfind([1,2,'2',3,4,5],function(a){return a==='2'})//=>'2'find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined```
 <a name="module_array.shuffle"></a>
 
 ### array.shuffle(arr) ⇒ <code>Array</code>
