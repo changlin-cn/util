@@ -6,19 +6,19 @@
 declare module "changlin-util" {
 
     export function extend(deep: boolean | object, ...other: [object]): object;
-    export function isFunction(): boolean;
-    export function isString(): boolean;
-    export function isNumber(): boolean;
-    export function isDate(): boolean;
-    export function isObject(): boolean;
-    export function isFunction(): boolean;
-    export function isArray(): boolean;
-    export function isLikeArray(): boolean;
-    export function isBoolean(): boolean;
-    export function isPlainObject(): boolean;
-    export function isUndefined(): boolean;
-    export function isWindow(): boolean;
-    export function whatIs(): string;
+    export function isFunction(value:any): boolean;
+    export function isString(value:any): boolean;
+    export function isNumber(value:any): boolean;
+    export function isDate(value:any): boolean;
+    export function isObject(value:any): boolean;
+    export function isFunction(value:any): boolean;
+    export function isArray(value:any): boolean;
+    export function isLikeArray(value:any): boolean;
+    export function isBoolean(value:any): boolean;
+    export function isPlainObject(value:any): boolean;
+    export function isUndefined(value:any): boolean;
+    export function isWindow(value:any): boolean;
+    export function whatIs(value:any): string;
     export function isType(type: string, value: string): boolean;
 
 
