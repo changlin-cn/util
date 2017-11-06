@@ -14,6 +14,10 @@ var _is = require('./is.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var hasOwn = Object.prototype.hasOwnProperty; /**
+                                               * @module extend
+                                               */
+
 function _extend() {
     for (var _len = arguments.length, a = Array(_len), _key = 0; _key < _len; _key++) {
         a[_key] = arguments[_key];
@@ -27,11 +31,13 @@ function _extend() {
     if (!(0, _is.isObject)(source)) return target;
 
     for (var key in source) {
-        if (deep && ((0, _is.isPlainObject)(source[key]) || (0, _is.isArray)(source[key]))) {
-            if ((0, _is.isPlainObject)(source[key]) && !(0, _is.isPlainObject)(target[key])) target[key] = {};
-            if ((0, _is.isArray)(source[key]) && !(0, _is.isArray)(target[key])) target[key] = [];
-            _extend(deep, target[key], source[key]);
-        } else if (source[key] !== undefined) target[key] = source[key];
+        if (hasOwn.call(source, key)) {
+            if (deep && ((0, _is.isPlainObject)(source[key]) || (0, _is.isArray)(source[key]))) {
+                if ((0, _is.isPlainObject)(source[key]) && !(0, _is.isPlainObject)(target[key])) target[key] = {};
+                if ((0, _is.isArray)(source[key]) && !(0, _is.isArray)(target[key])) target[key] = [];
+                _extend(deep, target[key], source[key]);
+            } else if (source[key] !== undefined) target[key] = source[key];
+        }
     }return target;
 }
 
@@ -58,10 +64,6 @@ function _extend() {
  *res.c.c1===4//=>false
  * ```
  * @returns {object}
- */
-
-/**
- * @module extend
  */
 
 function extend() {

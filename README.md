@@ -75,12 +75,7 @@ import {isType,isString} from  'changlin-util/dist/is'
 | char | <code>string</code> |  |
 
 **Example**  
-```javascript
-trim('   abc   ')//=>'abc'
-trim('   abc   ','f')//=>'abc   '
-trim('   abc   ','e')//=>'   abc'
-trim('**abc**','*')//=>'abc'
-```
+```javascripttrim('   abc   ')//=>'abc'trim('   abc   ','f')//=>'abc   'trim('   abc   ','e')//=>'   abc'trim('**abc**','*')//=>'abc'```
 <a name="module_string.encodeToUnicode"></a>
 
 ### string.encodeToUnicode(str) ⇒ <code>string</code>
@@ -93,11 +88,7 @@ trim('**abc**','*')//=>'abc'
 | str | <code>string</code> | 需要转码的字符串 |
 
 **Example**  
-```javascript
- encodeToUnicode('啊abc123.')
- //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"
-
-```
+```javascript encodeToUnicode('啊abc123.') //=>"\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e"```
 <a name="module_string.decodeUnicode"></a>
 
 ### string.decodeUnicode(str) ⇒ <code>string</code>
@@ -110,11 +101,7 @@ unicode字符串解码
 | str | <code>string</code> | 需要解码的字符串 |
 
 **Example**  
-```javascript
- decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e')
- //=>"啊abc123."
-
-```
+```javascript decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e') //=>"啊abc123."```
 <a name="module_math"></a>
 
 ## math
@@ -131,12 +118,7 @@ unicode字符串解码
 | max | <code>number</code> | 
 
 **Example**  
-```javascript
-let res=randomInteger(4)
-res>=0&&res<=4      //true
-isType('integer',res)//true
-
-```
+```javascriptlet res=randomInteger(4)res>=0&&res<=4      //trueisType('integer',res)//true```
 <a name="module_array"></a>
 
 ## array
@@ -160,10 +142,7 @@ isType('integer',res)//true
 | s | <code>Object</code> | 
 
 **Example**  
-```javascript
-toArray({'0':123,'2':456,length:3})
-//=>[123,456,undefined]
-```
+```javascripttoArray({'0':123,'2':456,length:3})//=>[123,456,undefined]```
 <a name="module_array.removeFromArray"></a>
 
 ### array.removeFromArray(arr, condition, number) ⇒ <code>Array</code>
@@ -178,15 +157,7 @@ toArray({'0':123,'2':456,length:3})
 | number | <code>Number</code> |  |
 
 **Example**  
-```javascript
-let a=[1,2,3];
-removeFromArray(a,1)//=>[2]
-a//=>[1,3]
-
-let b=[{id:1},{id:2},{id:3}];
-removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]
-b//=>[{id:1},{id:2}]
-```
+```javascriptlet a=[1,2,3];removeFromArray(a,1)//=>[2]a//=>[1,3]let b=[{id:1},{id:2},{id:3}];removeFromArray(b,(n)=>n.id===3)//=>[{id:3}]b//=>[{id:1},{id:2}]```
 <a name="module_array.sort"></a>
 
 ### array.sort(arr, compare) ⇒ <code>Array</code>
@@ -200,15 +171,7 @@ b//=>[{id:1},{id:2}]
 | compare | <code>function</code> | 比较函数 |
 
 **Example**  
-```javascript
-let a=[1,3,,,2];
-sort(a,()=>true)//=>[2,3,1,undefined,undefined]
-a//=>[2,3,1,undefined,undefined]
-
-let arrb=[1,3,5,4,2,7,6]
-sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]
-
-```
+```javascriptlet a=[1,3,,,2];sort(a,()=>true)//=>[2,3,1,undefined,undefined]a//=>[2,3,1,undefined,undefined]let arrb=[1,3,5,4,2,7,6]sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]```
 <a name="module_array.find"></a>
 
 ### array.find(array, fn) ⇒ <code>any</code>
@@ -222,10 +185,7 @@ sort(arrb,(a,b)=>a>b)//[1,2,3,4,5,6,7]
 | fn | <code>function</code> | 过滤函数 |
 
 **Example**  
-```javascript
-find([1,2,'2',3,4,5],function(a){return a==='2'})//=>'2'
-find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined
-```
+```javascriptfind([1,2,'2',3,4,5],function(a){return a==='2'})//=>'2'find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined```
 <a name="module_array.shuffle"></a>
 
 ### array.shuffle(arr) ⇒ <code>Array</code>
@@ -238,12 +198,7 @@ find([1,2,'2',3,4,5],function(a){return a===8})//=>undefined
 | arr | <code>Array</code> | 
 
 **Example**  
-```javascript
-let arr1=[1,2,3];
-let res=shuffle(arr1);
-res===arr1//=>true
-res.length===3//true
-```
+```javascriptlet arr1=[1,2,3];let res=shuffle(arr1);res===arr1//=>trueres.length===3//true```
 <a name="module_date"></a>
 
 ## date
@@ -295,10 +250,7 @@ res.length===3//true
 | format | <code>string</code> | 
 
 **Example**  
-```javascript
-dateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')
-dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
-```
+```javascriptdateFormat(new Date(), 'yyyy/MM/dd hh:mm:ss')dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11```
 <a name="module_date.fromTime"></a>
 
 ### date.fromTime(from, now) ⇒ <code>string</code>
@@ -312,11 +264,7 @@ dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
 | now | <code>Date</code> \| <code>string</code> \| <code>number</code> \| <code>undefined</code> | 较近的时间 |
 
 **Example**  
-```javascript
- let t1 = new Date(1478836800000);
- let t2 = new Date(1478836800100);
-  fromTime(t1, t2) //=>刚刚
-```
+```javascript let t1 = new Date(1478836800000); let t2 = new Date(1478836800100);  fromTime(t1, t2) //=>刚刚```
 <a name="module_extend"></a>
 
 ## extend
@@ -334,19 +282,7 @@ dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
 | source | <code>object</code> | 
 
 **Example**  
-```javascript
-//deep  false
- let source  = {a: 1, b: 2, c: {c1: 1}};
-let res  = extend(false, {}, source);
-source.c.c1 = 4;
-res.c.c1===4//=>true
-
-//deep true
-let source  = {a: 1, b: 2, c: {c1: 1}};
-let res  = extend(true, {}, source);
-source.c.c1 = 4;
-res.c.c1===4//=>false
-```
+```javascript//deep  false let source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(false, {}, source);source.c.c1 = 4;res.c.c1===4//=>true//deep truelet source  = {a: 1, b: 2, c: {c1: 1}};let res  = extend(true, {}, source);source.c.c1 = 4;res.c.c1===4//=>false```
 <a name="module_is"></a>
 
 ## is
@@ -385,9 +321,7 @@ res.c.c1===4//=>false
 | string | <code>string</code> \| <code>number</code> |  |
 
 **Example**  
-```javascript
-isType('email','user@163.com')   //=>true
-```
+```javascriptisType('email','user@163.com')   //=>true```
 <a name="module_is.isFunction"></a>
 
 ### is.isFunction() ⇒ <code>boolean</code>
@@ -455,11 +389,7 @@ isType('email','user@163.com')   //=>true
 
 **Kind**: static method of [<code>is</code>](#module_is)  
 **Example**  
-```javascript
-whatIs(new Date())//=>'date'
-whatIs(null)//=>'null'
-
-```
+```javascriptwhatIs(new Date())//=>'date'whatIs(null)//=>'null'```
 <a name="module_regex"></a>
 
 ## regex

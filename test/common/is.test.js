@@ -305,6 +305,11 @@ module.exports=function(is){
                 null
             )).to.equal(false);
         });
+        it('[] should not be Object', function () {
+            expect(isObject(
+                []
+            )).to.equal(false);
+        });
     });
     
     describe('is.js  isFunction', function () {
