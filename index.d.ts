@@ -5,7 +5,7 @@
 
 declare module "changlin-util" {
 
-    export function extend(deep: boolean | object, ...other: [object]): object;
+    export function extend(deep: boolean | object, ...other: object[]): object;
     export function isFunction(value:any): boolean;
     export function isString(value:any): boolean;
     export function isNumber(value:any): boolean;
