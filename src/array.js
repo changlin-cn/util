@@ -1,6 +1,4 @@
-/**
- * @module array
- */
+
 
 import {isArray,isFunction,isNumber,isUndefined,whatIs,isLikeArray} from './is'
 import {randomInteger} from './math.js'
@@ -196,6 +194,24 @@ export function shuffle(arr){
     }
     
     return arr;
+}
+
+
+/**
+ * 获取数组最后一个元素
+ *
+ * @param {Array}  arr
+ * @example
+ * ```javascript
+ *
+ * lastOneOf([1,2,3])//=>3
+ *
+ *
+ * ```
+ *
+ */
+export function lastOneOf(arr){
+    return arr[arr.length-1]
 }
 
 

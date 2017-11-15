@@ -38,6 +38,4 @@ function randomInteger(min, max) {
     var difference = max - min;
     var random = Math.floor(Math.random() * (difference + 1));
     return min + random;
-} /**
-   * @module math
-   */
+}

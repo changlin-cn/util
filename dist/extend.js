@@ -14,9 +14,7 @@ var _is = require('./is.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var hasOwn = Object.prototype.hasOwnProperty; /**
-                                               * @module extend
-                                               */
+var hasOwn = Object.prototype.hasOwnProperty;
 
 function _extend() {
     for (var _len = arguments.length, a = Array(_len), _key = 0; _key < _len; _key++) {

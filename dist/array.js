@@ -13,6 +13,7 @@ exports.removeFromArray = removeFromArray;
 exports.sort = sort;
 exports.find = find;
 exports.shuffle = shuffle;
+exports.lastOneOf = lastOneOf;
 
 var _is = require('./is');
 
@@ -68,10 +69,6 @@ function toArray(s) {
  *
  * @returns {Array}
  */
-/**
- * @module array
- */
-
 function removeFromArray(arr, condition) {
     var number = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
 
@@ -219,4 +216,21 @@ function shuffle(arr) {
     }
 
     return arr;
+}
+
+/**
+ * 获取数组最后一个元素
+ *
+ * @param {Array}  arr
+ * @example
+ * ```javascript
+ *
+ * lastOneOf([1,2,3])//=>3
+ *
+ *
+ * ```
+ *
+ */
+function lastOneOf(arr) {
+    return arr[arr.length - 1];
 }

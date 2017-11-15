@@ -1,6 +1,4 @@
-/**
- * @module math
- */
+
 
 import {isUndefined,isType} from './is'
 

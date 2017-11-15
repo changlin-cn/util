@@ -1,6 +1,4 @@
-/**
- * @module date
- */
+
 
 import {isDate, isString, isNumber, isType} from './is'
 

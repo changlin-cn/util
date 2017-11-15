@@ -18,10 +18,6 @@ var ONE_SEC = exports.ONE_SEC = 1000;
  *
  * */
 
-/**
- * @module date
- */
-
 var ONE_MIN = exports.ONE_MIN = 60 * 1000;
 /**
  *

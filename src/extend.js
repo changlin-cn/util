@@ -1,6 +1,3 @@
-/**
- * @module extend
- */
 
 
 import {isWindow,isPlainObject,isObject,isFunction,isArray,isBoolean} from './is.js'

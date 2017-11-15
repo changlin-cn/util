@@ -3,7 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.isArray = undefined;
+exports.isDOM = exports.isArray = undefined;
+
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
 
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
@@ -42,10 +46,6 @@ var class2type = {},
  * ```
  * @returns {boolean}
  */
-/**
- * @module is
- */
-
 function isType(type, string) {
     if (isString(string) || isNumber(string)) {
         if (_regex.regex[type] && type !== 'default') {
@@ -105,7 +105,7 @@ function isNumber(value) {
 }
 
 /**
- * 判断值是否为object
+ * 判断值是否为object(注意：此方法使用Object.prototype.toString.call(value)进行判断)
  *
  * @returns {boolean}
  */
@@ -142,7 +142,7 @@ function isLikeArray(value) {
 
 /**
  * 判断值是否为Array
- *
+ * @function isArray
  * @returns {boolean}
  */
 var isArray = exports.isArray = Array.isArray || function (value) {
@@ -172,3 +172,22 @@ function whatIs(value) {
     return (/(?:(\S*)])/.exec(toString.call(value))[1].toLowerCase()
     );
 }
+
+/**
+ * 判断值是否为dom对象
+ * @function isDOM
+ *@example
+ *```javascript
+ *isDOM(document.querySelector('div'))
+ *
+ *
+ *```
+ * @returns {boolean}
+ */
+var isDOM = exports.isDOM = function () {
+    return typeof HTMLElement === 'function' ? function (obj) {
+        return obj instanceof HTMLElement;
+    } : function (obj) {
+        return obj && (typeof obj === 'undefined' ? 'undefined' : (0, _typeof3.default)(obj)) === 'object' && obj.nodeType === 1 && isString(obj.nodeName);
+    };
+}();

@@ -3,9 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-/**
- * @module regex
- */
+
 
 /**
  *  常用正则表达式

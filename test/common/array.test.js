@@ -1,6 +1,6 @@
 let expect = require('chai').expect;
 
-module.exports = function ({removeFromArray, sort, shuffle,toArray,find,findSome}) {
+module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneOf}) {
     
     describe('removeFromArray :   ', function () {
         
@@ -180,5 +180,12 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,findSome
             }).to.throw(Error);
         });
         
+    })
+
+    describe('lastOneOf :   ', function () {
+
+        it('lastOneOf [1,2,5] should be 5', function () {
+            expect(lastOneOf([1,2,5])).to.be.equal(5)
+        });
     })
 };

@@ -1,6 +1,4 @@
-/**
- * @module is
- */
+
 
 import {regex} from './regex'
 
@@ -81,7 +79,7 @@ export function isNumber(value) {
 }
 
 /**
- * 判断值是否为object
+ * 判断值是否为object(注意：此方法使用Object.prototype.toString.call(value)进行判断)
  *
  * @returns {boolean}
  */
@@ -118,7 +116,7 @@ export function isLikeArray(value) {
 
 /**
  * 判断值是否为Array
- *
+ * @function isArray
  * @returns {boolean}
  */
 export  let isArray = Array.isArray ||
@@ -148,6 +146,27 @@ export function isBoolean(value) {
 export function whatIs(value) {
     return /(?:(\S*)])/.exec( toString.call(value) )[1].toLowerCase()
 }
+
+/**
+ * 判断值是否为dom对象
+ * @function isDOM
+ *@example
+ *```javascript
+ *isDOM(document.querySelector('div'))
+ *
+ *
+ *```
+ * @returns {boolean}
+ */
+export const isDOM=(function(){
+    return ( typeof HTMLElement === 'function' ) ?
+        function(obj){
+            return obj instanceof HTMLElement;
+        } :
+        function(obj){
+            return obj && typeof obj === 'object' && obj.nodeType === 1 && isString( obj.nodeName) ;
+        }
+})();
 
 
 

@@ -62,10 +62,6 @@ function trim(string) {
  * @returns {string}
  */
 
-/**
- * @module string
- */
-
 function encodeToUnicode(str) {
     if (!(0, _is.isString)(str)) {
         throw new Error(str + ' is not string');

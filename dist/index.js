@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.find = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
+exports.getOrSetProp = exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.lastOneOf = exports.find = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.isDOM = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
 
 var _extend = require('./extend.js');
 
@@ -94,6 +94,12 @@ Object.defineProperty(exports, 'whatIs', {
     return _is2.whatIs;
   }
 });
+Object.defineProperty(exports, 'isDOM', {
+  enumerable: true,
+  get: function get() {
+    return _is2.isDOM;
+  }
+});
 
 var _regex = require('./regex.js');
 
@@ -157,6 +163,12 @@ Object.defineProperty(exports, 'find', {
     return _array.find;
   }
 });
+Object.defineProperty(exports, 'lastOneOf', {
+  enumerable: true,
+  get: function get() {
+    return _array.lastOneOf;
+  }
+});
 
 var _date = require('./date.js');
 
@@ -215,6 +227,15 @@ Object.defineProperty(exports, 'randomInteger', {
   enumerable: true,
   get: function get() {
     return _math.randomInteger;
+  }
+});
+
+var _object = require('./object.js');
+
+Object.defineProperty(exports, 'getOrSetProp', {
+  enumerable: true,
+  get: function get() {
+    return _object.getOrSetProp;
   }
 });
 

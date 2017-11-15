@@ -1,6 +1,4 @@
-/**
- * @module string
- */
+
 
 import {isString} from './is'
 
