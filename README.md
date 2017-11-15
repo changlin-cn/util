@@ -91,6 +91,9 @@ import {isType,isString} from  'changlin-util/dist/is'
 <dt><a href="#lastOneOf">lastOneOf(arr)</a></dt>
 <dd><p>获取数组最后一个元素</p>
 </dd>
+<dt><a href="#getOrSetProp">getOrSetProp(obj, prop)</a></dt>
+<dd><p>返回或设置对象的属性值</p>
+</dd>
 <dt><a href="#dateFormat">dateFormat(date, format)</a> ⇒ <code>string</code></dt>
 <dd><p>时间格式化</p>
 </dd>
@@ -376,6 +379,25 @@ res.length===3//true
 
 lastOneOf([1,2,3])//=>3
 
+
+```
+<a name="getOrSetProp"></a>
+
+## getOrSetProp(obj, prop)
+返回或设置对象的属性值
+
+**Kind**: global function  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| obj | <code>object</code> |  |
+| prop | <code>string</code> | 必须以'.'分割 |
+
+**Example**  
+```javascript
+let obj={a:{b:{c:{d:3}}}}
+getOrSetProp(obj,'a.b.c.d') //=>3
+getOrSetProp(obj,'a.b.c.d',4) //=>4
 
 ```
 <a name="dateFormat"></a>
