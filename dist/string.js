@@ -6,8 +6,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.trim = trim;
 exports.encodeToUnicode = encodeToUnicode;
 exports.decodeUnicode = decodeUnicode;
+exports.firstUpperCase = firstUpperCase;
+exports.firstLowerCase = firstLowerCase;
+exports.splitUnit = splitUnit;
 
 var _is = require('./is');
+
+var _regex = require('./regex');
 
 /**
  * 字符串两端剪切
@@ -96,4 +101,85 @@ function decodeUnicode(str) {
     return str.replace(/(\\u)(\w{4}|\w{2})/gi, function ($0, $1, $2) {
         return String.fromCharCode(parseInt($2, 16));
     });
+}
+
+/**
+ *
+ * Capitalize the first letter
+ * @param {string}  string
+ * @example
+ * ```javascript
+ *  firstUpperCase('abc')//=>'Abc'
+ *
+ *
+ * ```
+ *
+ * @returns {string}
+ */
+function firstUpperCase(string) {
+    return string[0].toUpperCase() + string.slice(1);
+}
+
+/**
+ *
+ * Lowercase first letter
+ * @param {string}  string
+ * @example
+ * ```javascript
+ *  firstLowerCase('Abc')//=>'abc'
+ *
+ *
+ * ```
+ *
+ * @returns {string}
+ */
+function firstLowerCase(string) {
+    return string[0].toLowerCase() + string.slice(1);
+}
+
+/**
+ *
+ * split number with unit
+ * @param {string}  value
+ * @param {boolean}  relative
+ * @example
+ * ```javascript
+ *  splitUnit('123px')//=>{value:123,unit:'px'}
+ *  splitUnit('123%')//=>{value:123,unit:'%'}
+ *  splitUnit('+123%')//=>{value:123,unit:'%'}
+ *  splitUnit('-123%')//=>{value:-123,unit:'%'}
+ *  splitUnit('-=123%',true)//=>{value:'-=123',unit:'%'}
+ *  splitUnit('+=123%',true)//=>{value:'+=123',unit:'%'}
+ *
+ *
+ * ```
+ *
+ * @returns {object}
+ */
+function splitUnit(value) {
+    var relative = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+    var v = void 0,
+        unit = '';
+    var reg = void 0;
+    if (relative) {
+        reg = _regex.regex.relativeNumberWithUnit;
+    } else {
+        reg = _regex.regex.numberWithUnit;
+    }
+
+    if (reg.test(value)) {
+
+        var temp = RegExp.$1;
+        unit = RegExp.$2;
+        if (_regex.regex.number.test(temp)) {
+            v = Number(temp);
+        } else {
+            v = temp;
+        }
+    }
+
+    return {
+        value: v, unit: unit
+    };
 }

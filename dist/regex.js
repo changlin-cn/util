@@ -20,11 +20,14 @@ Object.defineProperty(exports, "__esModule", {
  * @property  account
  * @property  IdCard
  * @property  ip
+ * @property  numberWithUnit
+ * @property  relativeNumberWithUnit
  *
  */
 var regex = exports.regex = {
-
-  number: /^-?((\d+(\.\d*)?)|(\.\d+))$/,
+  number: /^[-+]?((\d+(\.\d*)?)|(\.\d+))$/,
+  numberWithUnit: /^((?:[-+])?(?:(?:\d+(?:\.\d*)?)|(?:\.\d+)))([%a-zA-Z]*)/,
+  relativeNumberWithUnit: /^((?:[-+]=?)?(?:(?:\d+(?:\.\d*)?)|(?:\.\d+)))([%a-zA-Z]*)/,
   empty: /^$/,
   integer: /^-?\d+\.?$/,
   positiveInteger: /^0*[1-9]+\d*$/,

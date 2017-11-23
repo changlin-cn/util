@@ -43,6 +43,13 @@ declare module "changlin-util" {
     export function trim(string: string,side:string,needToReplace:string): string;
     export function decodeUnicode(string: string): string;
     export function encodeToUnicode(string: string): string;
+    export function firstUpperCase(string: string): string;
+    export function firstLowerCase(string: string): string;
+    export function splitUnit(string: string):splitUnitResult;
+    interface splitUnitResult{
+        value:string|number,
+        unit:string
+    }
 
     export function removeFromArray(array: [any],condition:(arrayElement:any)=>boolean): [any];
     export function removeFromArray(array: [any],start:number,end:number): [any];

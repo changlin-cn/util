@@ -1,6 +1,7 @@
 
 
 import {isString} from './is'
+import {regex} from "./regex";
 
 /**
  * 字符串两端剪切
@@ -83,4 +84,84 @@ export function decodeUnicode(str) {
     return str.replace(/(\\u)(\w{4}|\w{2})/gi, function ($0, $1, $2) {
         return String.fromCharCode(parseInt($2, 16));
     });
+}
+
+
+/**
+ *
+ * Capitalize the first letter
+ * @param {string}  string
+ * @example
+ * ```javascript
+ *  firstUpperCase('abc')//=>'Abc'
+ *
+ *
+ * ```
+ *
+ * @returns {string}
+ */
+export function firstUpperCase (string){
+    return string[0].toUpperCase()+string.slice(1)
+}
+
+/**
+ *
+ * Lowercase first letter
+ * @param {string}  string
+ * @example
+ * ```javascript
+ *  firstLowerCase('Abc')//=>'abc'
+ *
+ *
+ * ```
+ *
+ * @returns {string}
+ */
+export function firstLowerCase(string) {
+    return string[0].toLowerCase()+string.slice(1)
+}
+
+
+/**
+ *
+ * split number with unit
+ * @param {string}  value
+ * @param {boolean}  relative
+ * @example
+ * ```javascript
+ *  splitUnit('123px')//=>{value:123,unit:'px'}
+ *  splitUnit('123%')//=>{value:123,unit:'%'}
+ *  splitUnit('+123%')//=>{value:123,unit:'%'}
+ *  splitUnit('-123%')//=>{value:-123,unit:'%'}
+ *  splitUnit('-=123%',true)//=>{value:'-=123',unit:'%'}
+ *  splitUnit('+=123%',true)//=>{value:'+=123',unit:'%'}
+ *
+ *
+ * ```
+ *
+ * @returns {object}
+ */
+export  function splitUnit(value,relative=false) {
+    let v, unit = '';
+    let reg;
+    if(relative){
+        reg=regex.relativeNumberWithUnit
+    }else{
+        reg=regex.numberWithUnit
+    }
+
+    if (reg.test(value)) {
+
+        let temp = RegExp.$1;
+        unit = RegExp.$2;
+        if (regex.number.test(temp)) {
+            v = Number(temp);
+        } else {
+            v = temp;
+        }
+    }
+
+    return {
+        value:v, unit
+    }
 }

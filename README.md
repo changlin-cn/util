@@ -70,6 +70,15 @@ import {isType,isString} from  'changlin-util/dist/is'
 <dt><a href="#decodeUnicode">decodeUnicode(str)</a> ⇒ <code>string</code></dt>
 <dd><p>unicode字符串解码</p>
 </dd>
+<dt><a href="#firstUpperCase">firstUpperCase(string)</a> ⇒ <code>string</code></dt>
+<dd><p>Capitalize the first letter</p>
+</dd>
+<dt><a href="#firstLowerCase">firstLowerCase(string)</a> ⇒ <code>string</code></dt>
+<dd><p>Lowercase first letter</p>
+</dd>
+<dt><a href="#splitUnit">splitUnit(value, relative)</a> ⇒ <code>object</code></dt>
+<dd><p>split number with unit</p>
+</dd>
 <dt><a href="#randomInteger">randomInteger(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>生成一定范围内的随机整数 （包括端点）</p>
 </dd>
@@ -169,6 +178,8 @@ import {isType,isString} from  'changlin-util/dist/is'
 | account | 
 | IdCard | 
 | ip | 
+| numberWithUnit | 
+| relativeNumberWithUnit | 
 
 <a name="ONE_SEC"></a>
 
@@ -246,6 +257,63 @@ unicode字符串解码
 ```javascript
  decodeUnicode('\u554a\u0061\u0062\u0063\u0031\u0032\u0033\u002e')
  //=>"啊abc123."
+
+```
+<a name="firstUpperCase"></a>
+
+## firstUpperCase(string) ⇒ <code>string</code>
+Capitalize the first letter
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```javascript
+ firstUpperCase('abc')//=>'Abc'
+
+
+```
+<a name="firstLowerCase"></a>
+
+## firstLowerCase(string) ⇒ <code>string</code>
+Lowercase first letter
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| string | <code>string</code> | 
+
+**Example**  
+```javascript
+ firstLowerCase('Abc')//=>'abc'
+
+
+```
+<a name="splitUnit"></a>
+
+## splitUnit(value, relative) ⇒ <code>object</code>
+split number with unit
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| value | <code>string</code> | 
+| relative | <code>boolean</code> | 
+
+**Example**  
+```javascript
+ splitUnit('123px')//=>{value:123,unit:'px'}
+ splitUnit('123%')//=>{value:123,unit:'%'}
+ splitUnit('+123%')//=>{value:123,unit:'%'}
+ splitUnit('-123%')//=>{value:-123,unit:'%'}
+ splitUnit('-=123%',true)//=>{value:'-=123',unit:'%'}
+ splitUnit('+=123%',true)//=>{value:'+=123',unit:'%'}
+
 
 ```
 <a name="randomInteger"></a>
