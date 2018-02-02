@@ -1,6 +1,6 @@
 let expect = require('chai').expect;
 
-module.exports=function(extend){
+module.exports=function({extend}){
     
     describe('extend.js  extend(true,{},{a:1,b:2,c:{c1:1}})', function () {
         let target = extend(true, {}, {a: 1, b: 2, c: {c1: 1}});

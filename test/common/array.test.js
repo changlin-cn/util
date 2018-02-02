@@ -1,16 +1,16 @@
 let expect = require('chai').expect;
 
-module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneOf}) {
-    
+module.exports = function ({removeFromArray, sort, shuffle, toArray, find, lastOneOf, excludeTheSame}) {
+
     describe('removeFromArray :   ', function () {
-        
-        let a    = [1, 2, 3];
+
+        let a = [1, 2, 3];
         let res1 = removeFromArray(a, 1)//=>[2]
-        
-        let b    = [{id: 1}, {id: 2}, {id: 3}];
+
+        let b = [{id: 1}, {id: 2}, {id: 3}];
         let res2 = removeFromArray(b, (n) => n.id === 3)//=>[{id:3}]
-        
-        
+
+
         it('a should be [1,3] now', function () {
             expect(a).to.deep.equal([1, 3]);
         });
@@ -23,36 +23,42 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
         it('res2 should be [{id:3}]', function () {
             expect(res2).to.deep.equal([{id: 3}]);
         });
-        
+
         it('removeFromArray() should throw Error', function () {
             expect(function () {
                 removeFromArray()
             }).to.throw(Error);
         });
     });
-    
+
     describe('find :   ', function () {
         it('find', function () {
-            expect(find([1,2,'2',3,4,5],function(a){return a==='2'})).to.be.equal('2');
+            expect(find([1, 2, '2', 3, 4, 5], function (a) {
+                return a === '2'
+            })).to.be.equal('2');
         });
-         it('find nothing', function () {
-            expect(find([1,2,'2',3,4,5],function(a){return a===8})).to.be.equal(undefined);
+        it('find nothing', function () {
+            expect(find([1, 2, '2', 3, 4, 5], function (a) {
+                return a === 8
+            })).to.be.equal(undefined);
         });
         it('find() should throw Error', function () {
             expect(function () {
                 find()
             }).to.throw(Error);
         });
-             it('find({}) should throw Error', function () {
+        it('find({}) should throw Error', function () {
             expect(function () {
-                find({},function(){return true})
+                find({}, function () {
+                    return true
+                })
             }).to.throw(Error);
         });
     });
-    
+
     describe('sort :   ', function () {
-        
-        
+
+
         let arra = [1, 3, , , 2];
         let res1 = sort(arra, () => true)//=>[2,3,1,undefined,undefined]
         it('arra should be [2,3,1,undefined,undefined]', function () {
@@ -61,8 +67,8 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
         it('res1 should be [2,3,1,undefined,undefined]', function () {
             expect(res1).to.deep.equal([2, 3, 1, undefined, undefined]);
         });
-        
-        
+
+
         let arrb = [1, 3, 5, 4, 2, 7, 6];
         let res2 = sort(arrb, (a, b) => a > b)//[1,2,3,4,5,6,7]
         it('arrb should be [1,2,3,4,5,6,7]', function () {
@@ -71,7 +77,7 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
         it('res2 should be [1,2,3,4,5,6,7]', function () {
             expect(res2).to.deep.equal([1, 2, 3, 4, 5, 6, 7]);
         });
-        
+
         let arrc = [1, 3, 5, 4, 2, 7, 6];
         let res3 = sort(arrc, (a, b) => {
             throw new Error('error1')
@@ -82,8 +88,8 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
         it('res3 should be [1,3,5,4,2,7,6]', function () {
             expect(res3).to.deep.equal([1, 3, 5, 4, 2, 7, 6]);
         });
-        
-        
+
+
         it('sort() should throw Error', function () {
             expect(function () {
                 sort()
@@ -105,18 +111,18 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
             }).to.throw(Error);
         });
     });
-    
+
     describe('shuffle :   ', function () {
-        let source1 = [1, 2, 3,4,5,6];
-       
-        let arr1 =source1.slice(0);
-        let res  = shuffle(arr1);
+        let source1 = [1, 2, 3, 4, 5, 6];
+
+        let arr1 = source1.slice(0);
+        let res = shuffle(arr1);
         console.log(`shuffle([1, 2, 3,4,5,6])
         //=>
         `);
-        console.log('\/\/'+res);
+        console.log('\/\/' + res);
         it('res===arr1 should be true', function () {
-            expect(res===arr1).to.be.equal(true)
+            expect(res === arr1).to.be.equal(true)
         });
         it('res should be not same with source1', function () {
             expect(res).to.be.not.equal(source1)
@@ -124,12 +130,12 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
         it('res.length should be 6', function () {
             expect(res.length).to.be.equal(6)
         });
-        for(let i=0;i<source1.length;i++){
+        for (let i = 0; i < source1.length; i++) {
             it(`res should contain ${source1[i]}`, function () {
-                expect(res.find(item=>item===source1[i])).to.be.equal(source1[i])
+                expect(res.find(item => item === source1[i])).to.be.equal(source1[i])
             });
         }
-    
+
         it('shuffle({}) should throw Error', function () {
             expect(function () {
                 shuffle({})
@@ -141,37 +147,36 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
             }).to.throw(Error);
         });
     })
-    
+
     describe('toArray :   ', function () {
         let source2 = {
-            1:1,
-            2:2,
-            3:3,
-            4:4,
-            5:5,
-            6:6,
-            length:7
+            1: 1,
+            2: 2,
+            3: 3,
+            4: 4,
+            5: 5,
+            6: 6,
+            length: 7
         };
-        let res2=toArray(source2);
-        
+        let res2 = toArray(source2);
+
         it('res2===source2 should be false', function () {
-            expect(res2===source2).to.be.equal(false)
+            expect(res2 === source2).to.be.equal(false)
         });
         it('res2.slice should be function', function () {
-            expect(typeof res2.slice ==='function').to.be.equal(true)
+            expect(typeof res2.slice === 'function').to.be.equal(true)
         });
         it('res2.length should be 7', function () {
             expect(res2.length).to.be.equal(7)
         });
-        for(let i=0;i<source2.length;i++){
+        for (let i = 0; i < source2.length; i++) {
             it(`res2 should contain ${source2[i]}`, function () {
-                expect(res2.find(item=>item===source2[i])).to.be.equal(source2[i])
+                expect(res2.find(item => item === source2[i])).to.be.equal(source2[i])
             });
         }
-    
         it('toArray({}) should throw Error', function () {
             expect(function () {
-                toArray({})
+                toArray(null)
             }).to.throw(Error);
         });
         it('toArray() should throw Error', function () {
@@ -179,13 +184,71 @@ module.exports = function ({removeFromArray, sort, shuffle,toArray,find,lastOneO
                 toArray()
             }).to.throw(Error);
         });
-        
+
     })
 
     describe('lastOneOf :   ', function () {
 
         it('lastOneOf [1,2,5] should be 5', function () {
-            expect(lastOneOf([1,2,5])).to.be.equal(5)
+            expect(lastOneOf([1, 2, 5])).to.be.equal(5)
         });
     })
+
+    describe('excludeTheSame :   ', function () {
+
+        it('the result of excludeTheSame [1,2,,2,,,5] should be [1,2,undefined,5]', function () {
+            const temp = excludeTheSame([1, 2, , 2, , , 5])
+            expect(temp.length).to.be.equal(4)
+            expect(temp[0]).to.be.equal(1)
+            expect(temp[1]).to.be.equal(2)
+            expect(temp[2]).to.be.equal(undefined)
+            expect(temp[3]).to.be.equal(5)
+        });
+
+        it('add isSame function', function () {
+            const temp = excludeTheSame(
+                [
+                    {
+                        a: 1
+                    },
+                    {
+                        a: 2
+                    },
+                    {
+                        a: 2
+                    },
+                    {
+                        a: 3
+                    },
+                    {
+                        a: 4
+                    },
+                    {
+                        a: 4
+                    },
+
+                ],
+                (a, b) => a.a === b.a
+            );
+            expect(temp.length).to.be.equal(4)
+            expect(temp[0].a).to.be.equal(1)
+            expect(temp[1].a).to.be.equal(2)
+            expect(temp[2].a).to.be.equal(3)
+            expect(temp[3].a).to.be.equal(4)
+        });
+
+        it('excludeTheSame() should throw Error', function () {
+            expect(function () {
+                excludeTheSame()
+            }).to.throw(Error);
+        });
+
+        it('excludeTheSame(null) should throw Error', function () {
+            expect(function () {
+                excludeTheSame(null)
+            }).to.throw(Error);
+        });
+    })
+
+
 };

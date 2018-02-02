@@ -1,6 +1,6 @@
 
 
-import {isArray,isFunction,isNumber,isUndefined,whatIs,isLikeArray} from './is'
+import {isArray,isFunction,isNumber,isUndefined,whatIs,isLikeArray,isGeneralizedObject} from './is'
 import {randomInteger} from './math.js'
 import {warning} from 'changlin-warning'
 
@@ -18,18 +18,7 @@ import {warning} from 'changlin-warning'
  * @returns {Array}
  */
 export function toArray(s){
-    if(!isLikeArray(s)){
-        throw new Error('s should be like array')
-    }
-    try{
-        return Array.prototype.slice.call(s);
-    } catch(e){
-        let arr = [];
-        for(let i = 0,len = s.length; i < len; i++){
-            arr[i] = s[i];
-        }
-        return arr;
-    }
+    return Array.prototype.slice.call(s)
 }
 
 
@@ -141,7 +130,7 @@ export function find(array,fn){
     if(!isArray(array)){
         throw new Error(`array should be Array type but got ${whatIs(array)}`)
     }
-  if( warning(!isFunction(fn),`fn is not function ,\'find\' will return undefined`)){return undefined}
+  if( warning(!isFunction(fn),`fn is not function ,'find' will return undefined`)){return undefined}
   
   if(array.find){return array.find(fn)}
   
@@ -215,8 +204,49 @@ export function lastOneOf(arr){
 }
 
 
+/**
+ * 数组去重，不对传入对象进行操作，返回一个新的数组
+ *
+ *```javascript
+ *
+ * excludeTheSame([1, 2, , 2, , , 5])//=> [1,2,undefined,5]
+ *excludeTheSame([1, 2, , 2, , , 5],(a,b)=>a===b)//=> [1,2,undefined,5]
+ *
+ *```
+ * @param {Array | likeArray } array
+ * @param {Function | undefined} isSame
+ * @returns {Array}
+ */
+export function excludeTheSame(array,isSame){
+    if(array === null || array === undefined){
+        throw new Error('array should not be null or undefined')
+    }
+    const result=[];
+    if(!isFunction(isSame)){
+        isSame=_isSame
+    }
+    if(array.length){
+        result.push(array[0])
+    }else{
+        return result
+    }
+    for(let i=0;i<array.length;i++){
+        for(let j=0;j<result.length;j++){
+            if(isSame(result[j],array[i])){
+                break
+            }
+            if(j===result.length-1){
+                result.push(array[i]);
+                break
+            }
+        }
+    }
+    return result
+}
 
-
+function _isSame(a,b){
+    return a===b
+}
 
 
 

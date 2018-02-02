@@ -15,6 +15,7 @@ module.exports=function(is){
             isUndefined,
             isWindow,
             isDate,
+        isGeneralizedObject
         } = is;
     
     
@@ -243,7 +244,31 @@ module.exports=function(is){
             )).to.equal(false);
         });
     });
-    
+
+    describe('is.js  isGeneralizedObject', function () {
+        it('test1', function () {
+            expect(isGeneralizedObject(
+                []
+            )).to.equal(true);
+        });
+       it('test2', function () {
+            expect(isGeneralizedObject(
+                {}
+            )).to.equal(true);
+        });
+       it('test3', function () {
+            expect(isGeneralizedObject(
+                new Date()
+            )).to.equal(true);
+        });
+       it('test4', function () {
+            expect(isGeneralizedObject(
+               null
+            )).to.equal(false);
+        });
+
+    });
+
     
     describe('is.js  isString', function () {
         it('\'123\' should be String', function () {

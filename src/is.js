@@ -88,6 +88,18 @@ export function isObject(value) {
 }
 
 /**
+ * 判断值是否为广义的object(注意：此方法使用typeof进行判断)
+ *
+ * @returns {boolean}
+ */
+export function isGeneralizedObject(value) {
+   return typeof value === 'object' && value !== null
+}
+
+
+
+
+/**
  * 判断值是否为Date
  *
  * @returns {boolean}
@@ -111,7 +123,7 @@ export function isPlainObject(value) {
  * @returns {boolean}
  */
 export function isLikeArray(value) {
-    return isObject(value) && isNumber(value.length)
+    return isGeneralizedObject(value) && isNumber(value.length)
 }
 
 /**

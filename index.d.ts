@@ -21,6 +21,7 @@ declare module "changlin-util" {
     export function whatIs(value:any): string;
     export function isDOM(value:any): boolean;
     export function isType(type: string, value: string): boolean;
+    export function isGeneralizedObject(value:any): boolean;
 
 
     export let regex: {
@@ -58,6 +59,7 @@ declare module "changlin-util" {
     export function toArray(object:object): [any];
     export function find(array:[any],fn:()=>boolean): any;
     export function lastOneOf(array:[any]): any;
+    export function excludeTheSame(array:[any]): any[];
 
     export function dateFormat(date:object,format:string): string;
     export function fromTime(from:object|number,now?:object|number): string;
@@ -70,6 +72,9 @@ declare module "changlin-util" {
 
     export function randomInteger(max:number): number;
     export function randomInteger(min:number,max:number): number;
+    export function createCombination(array:any[],combinationLength:number): any[];
+    export function computeFactorial(number:number): number;
+    export function computeCombinationLength(elementNumber:number,combinationLength:number): number;
 
     export function getOrSetProp(obj:object,prop:string,value?:any): any;
 
