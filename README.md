@@ -82,6 +82,18 @@ import {isType,isString} from  'changlin-util/dist/is'
 <dt><a href="#randomInteger">randomInteger(min, max)</a> ⇒ <code>number</code></dt>
 <dd><p>生成一定范围内的随机整数 （包括端点）</p>
 </dd>
+<dt><a href="#createCombination">createCombination(array, combinationLength)</a></dt>
+<dd><p>从一个数组中获取一定长度的所有组合</p>
+</dd>
+<dt><a href="#computeFactorial">computeFactorial(number)</a> ⇒ <code>number</code></dt>
+<dd><p>计算阶乘</p>
+<pre><code class="lang-javascript">computeFactorial(0) //=&gt;1
+computeFactorial(3)  //=&gt;6
+</code></pre>
+</dd>
+<dt><a href="#computeCombinationLength">computeCombinationLength(elementNumber, combinationLength)</a> ⇒ <code>number</code></dt>
+<dd><p>计算 组合数</p>
+</dd>
 <dt><a href="#toArray">toArray(s)</a> ⇒ <code>Array</code></dt>
 <dd><p>类数组对象转化为数组</p>
 </dd>
@@ -99,6 +111,13 @@ import {isType,isString} from  'changlin-util/dist/is'
 </dd>
 <dt><a href="#lastOneOf">lastOneOf(arr)</a></dt>
 <dd><p>获取数组最后一个元素</p>
+</dd>
+<dt><a href="#excludeTheSame">excludeTheSame(array, isSame)</a> ⇒ <code>Array</code></dt>
+<dd><p>数组去重，不对传入对象进行操作，返回一个新的数组</p>
+<pre><code class="lang-javascript">
+excludeTheSame([1, 2, , 2, , , 5])//=&gt; [1,2,undefined,5]
+excludeTheSame([1, 2, , 2, , , 5],(a,b)=&gt;a===b)//=&gt; [1,2,undefined,5]
+</code></pre>
 </dd>
 <dt><a href="#getOrSetProp">getOrSetProp(obj, prop)</a></dt>
 <dd><p>返回或设置对象的属性值</p>
@@ -132,6 +151,9 @@ import {isType,isString} from  'changlin-util/dist/is'
 </dd>
 <dt><a href="#isObject">isObject()</a> ⇒ <code>boolean</code></dt>
 <dd><p>判断值是否为object(注意：此方法使用Object.prototype.toString.call(value)进行判断)</p>
+</dd>
+<dt><a href="#isGeneralizedObject">isGeneralizedObject()</a> ⇒ <code>boolean</code></dt>
+<dd><p>判断值是否为广义的object(注意：此方法使用typeof进行判断)</p>
 </dd>
 <dt><a href="#isDate">isDate()</a> ⇒ <code>boolean</code></dt>
 <dd><p>判断值是否为Date</p>
@@ -335,6 +357,46 @@ res>=0&&res<=4      //true
 isType('integer',res)//true
 
 ```
+<a name="createCombination"></a>
+
+## createCombination(array, combinationLength)
+从一个数组中获取一定长度的所有组合
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| array | <code>Array</code> | 
+| combinationLength | <code>Number</code> | 
+
+<a name="computeFactorial"></a>
+
+## computeFactorial(number) ⇒ <code>number</code>
+计算阶乘
+```javascript
+computeFactorial(0) //=>1
+computeFactorial(3)  //=>6
+
+```
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| number | <code>number</code> | 
+
+<a name="computeCombinationLength"></a>
+
+## computeCombinationLength(elementNumber, combinationLength) ⇒ <code>number</code>
+计算 组合数
+
+**Kind**: global function  
+
+| Param |
+| --- |
+| elementNumber | 
+| combinationLength | 
+
 <a name="toArray"></a>
 
 ## toArray(s) ⇒ <code>Array</code>
@@ -449,6 +511,25 @@ lastOneOf([1,2,3])//=>3
 
 
 ```
+<a name="excludeTheSame"></a>
+
+## excludeTheSame(array, isSame) ⇒ <code>Array</code>
+数组去重，不对传入对象进行操作，返回一个新的数组
+
+```javascript
+
+excludeTheSame([1, 2, , 2, , , 5])//=> [1,2,undefined,5]
+excludeTheSame([1, 2, , 2, , , 5],(a,b)=>a===b)//=> [1,2,undefined,5]
+
+```
+
+**Kind**: global function  
+
+| Param | Type |
+| --- | --- |
+| array | <code>Array</code> \| <code>likeArray</code> | 
+| isSame | <code>function</code> \| <code>undefined</code> | 
+
 <a name="getOrSetProp"></a>
 
 ## getOrSetProp(obj, prop)
@@ -580,6 +661,12 @@ isType('email','user@163.com')   //=>true
 
 ## isObject() ⇒ <code>boolean</code>
 判断值是否为object(注意：此方法使用Object.prototype.toString.call(value)进行判断)
+
+**Kind**: global function  
+<a name="isGeneralizedObject"></a>
+
+## isGeneralizedObject() ⇒ <code>boolean</code>
+判断值是否为广义的object(注意：此方法使用typeof进行判断)
 
 **Kind**: global function  
 <a name="isDate"></a>

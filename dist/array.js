@@ -14,6 +14,7 @@ exports.sort = sort;
 exports.find = find;
 exports.shuffle = shuffle;
 exports.lastOneOf = lastOneOf;
+exports.excludeTheSame = excludeTheSame;
 
 var _is = require('./is');
 
@@ -36,18 +37,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @returns {Array}
  */
 function toArray(s) {
-    if (!(0, _is.isLikeArray)(s)) {
-        throw new Error('s should be like array');
-    }
-    try {
-        return Array.prototype.slice.call(s);
-    } catch (e) {
-        var arr = [];
-        for (var i = 0, len = s.length; i < len; i++) {
-            arr[i] = s[i];
-        }
-        return arr;
-    }
+    return Array.prototype.slice.call(s);
 }
 
 /**
@@ -233,4 +223,48 @@ function shuffle(arr) {
  */
 function lastOneOf(arr) {
     return arr[arr.length - 1];
+}
+
+/**
+ * 数组去重，不对传入对象进行操作，返回一个新的数组
+ *
+ *```javascript
+ *
+ * excludeTheSame([1, 2, , 2, , , 5])//=> [1,2,undefined,5]
+ *excludeTheSame([1, 2, , 2, , , 5],(a,b)=>a===b)//=> [1,2,undefined,5]
+ *
+ *```
+ * @param {Array | likeArray } array
+ * @param {Function | undefined} isSame
+ * @returns {Array}
+ */
+function excludeTheSame(array, isSame) {
+    if (array === null || array === undefined) {
+        throw new Error('array should not be null or undefined');
+    }
+    var result = [];
+    if (!(0, _is.isFunction)(isSame)) {
+        isSame = _isSame;
+    }
+    if (array.length) {
+        result.push(array[0]);
+    } else {
+        return result;
+    }
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < result.length; j++) {
+            if (isSame(result[j], array[i])) {
+                break;
+            }
+            if (j === result.length - 1) {
+                result.push(array[i]);
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+function _isSame(a, b) {
+    return a === b;
 }

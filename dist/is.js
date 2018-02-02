@@ -5,13 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.isDOM = exports.isArray = undefined;
 
-var _typeof2 = require('babel-runtime/helpers/typeof');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
 
 exports.isType = isType;
 exports.isFunction = isFunction;
@@ -20,6 +20,7 @@ exports.isWindow = isWindow;
 exports.isString = isString;
 exports.isNumber = isNumber;
 exports.isObject = isObject;
+exports.isGeneralizedObject = isGeneralizedObject;
 exports.isDate = isDate;
 exports.isPlainObject = isPlainObject;
 exports.isLikeArray = isLikeArray;
@@ -114,6 +115,15 @@ function isObject(value) {
 }
 
 /**
+ * 判断值是否为广义的object(注意：此方法使用typeof进行判断)
+ *
+ * @returns {boolean}
+ */
+function isGeneralizedObject(value) {
+    return (typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value)) === 'object' && value !== null;
+}
+
+/**
  * 判断值是否为Date
  *
  * @returns {boolean}
@@ -137,7 +147,7 @@ function isPlainObject(value) {
  * @returns {boolean}
  */
 function isLikeArray(value) {
-    return isObject(value) && isNumber(value.length);
+    return isGeneralizedObject(value) && isNumber(value.length);
 }
 
 /**

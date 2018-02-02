@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getOrSetProp = exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.lastOneOf = exports.find = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.firstUpperCase = exports.firstLowerCase = exports.splitUnit = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.isDOM = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
+exports.getOrSetProp = exports.createCombination = exports.computeFactorial = exports.computeCombinationLength = exports.randomInteger = exports.ONE_YEAR = exports.ONE_MONTH = exports.ONE_MIN = exports.ONE_SEC = exports.ONE_DAY = exports.ONE_HOUR = exports.fromTime = exports.dateFormat = exports.excludeTheSame = exports.lastOneOf = exports.find = exports.toArray = exports.shuffle = exports.sort = exports.removeFromArray = exports.firstUpperCase = exports.firstLowerCase = exports.splitUnit = exports.encodeToUnicode = exports.decodeUnicode = exports.trim = exports.regex = exports.isDOM = exports.whatIs = exports.isWindow = exports.isUndefined = exports.isType = exports.isPlainObject = exports.isBoolean = exports.isLikeArray = exports.isArray = exports.isGeneralizedObject = exports.isFunction = exports.isObject = exports.isDate = exports.isNumber = exports.isString = exports.is = exports.extend = undefined;
 
 var _extend = require('./extend.js');
 
@@ -44,6 +44,12 @@ Object.defineProperty(exports, 'isFunction', {
   enumerable: true,
   get: function get() {
     return _is2.isFunction;
+  }
+});
+Object.defineProperty(exports, 'isGeneralizedObject', {
+  enumerable: true,
+  get: function get() {
+    return _is2.isGeneralizedObject;
   }
 });
 Object.defineProperty(exports, 'isArray', {
@@ -187,6 +193,12 @@ Object.defineProperty(exports, 'lastOneOf', {
     return _array.lastOneOf;
   }
 });
+Object.defineProperty(exports, 'excludeTheSame', {
+  enumerable: true,
+  get: function get() {
+    return _array.excludeTheSame;
+  }
+});
 
 var _date = require('./date.js');
 
@@ -245,6 +257,24 @@ Object.defineProperty(exports, 'randomInteger', {
   enumerable: true,
   get: function get() {
     return _math.randomInteger;
+  }
+});
+Object.defineProperty(exports, 'computeCombinationLength', {
+  enumerable: true,
+  get: function get() {
+    return _math.computeCombinationLength;
+  }
+});
+Object.defineProperty(exports, 'computeFactorial', {
+  enumerable: true,
+  get: function get() {
+    return _math.computeFactorial;
+  }
+});
+Object.defineProperty(exports, 'createCombination', {
+  enumerable: true,
+  get: function get() {
+    return _math.createCombination;
   }
 });
 
