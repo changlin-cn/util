@@ -35,16 +35,22 @@ function _extend(...a) {
  *
  * ```javascript
  * //deep  false
- *  let source  = {a: 1, b: 2, c: {c1: 1}};
- *let res  = extend(false, {}, source);
+ *  const source  = {a: 1, b: 2, c: {c1: 1}};
+ *const res  = extend(false, {}, source);
  *source.c.c1 = 4;
  * res.c.c1===4//=>true
  *
  * //deep true
- *let source  = {a: 1, b: 2, c: {c1: 1}};
- *let res  = extend(true, {}, source);
+ *const source  = {a: 1, b: 2, c: {c1: 1}};
+ *const res  = extend(true, {}, source);
  *source.c.c1 = 4;
  *res.c.c1===4//=>false
+ *
+ * //extend(true,  source)
+ * const source={a: 1, b: 2, c: {c1: 1}}
+ * const target = extend(true,  source);
+ * target.c.c1=2
+ * source.c.c1//=>1
  * ```
  * @returns {object}
  */
@@ -61,8 +67,8 @@ export function extend(...a) {
     }
 
     if(len===2){
-        if(deep){
-            return a[1]
+        if(deep&&first){
+            return _extend(first,{},a[1])
         }else{
             return _extend(false,...a)
         }

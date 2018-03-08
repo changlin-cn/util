@@ -600,16 +600,22 @@ dateFormat(1478836800000, 'yyyy-MM-dd') //=>2016-11-11
 **Example**  
 ```javascript
 //deep  false
- let source  = {a: 1, b: 2, c: {c1: 1}};
-let res  = extend(false, {}, source);
+ const source  = {a: 1, b: 2, c: {c1: 1}};
+const res  = extend(false, {}, source);
 source.c.c1 = 4;
 res.c.c1===4//=>true
 
 //deep true
-let source  = {a: 1, b: 2, c: {c1: 1}};
-let res  = extend(true, {}, source);
+const source  = {a: 1, b: 2, c: {c1: 1}};
+const res  = extend(true, {}, source);
 source.c.c1 = 4;
 res.c.c1===4//=>false
+
+//extend(true,  source)
+const source={a: 1, b: 2, c: {c1: 1}}
+const target = extend(true,  source);
+target.c.c1=2
+source.c.c1//=>1
 ```
 <a name="isType"></a>
 
